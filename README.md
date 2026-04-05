@@ -2,7 +2,9 @@
 
 A fast, mobile-friendly interactive map of the [Vassar College Arboretum](https://www.vassar.edu/arboretum) — built because the official map is too slow to use while walking campus.
 
-**[→ Open the map](https://raw.githack.com/davdgreen/vassar-tree-map/main/vassar-tree-map.html)**
+**[→ Open the map](https://htmlpreview.github.io/?https://github.com/davdgreen/vassar-tree-map/blob/main/vassar-tree-map.html)**
+
+> Or enable GitHub Pages (repo Settings → Pages → Source: main branch) for a cleaner URL at `https://davdgreen.github.io/vassar-tree-map`
 
 ## Features
 
