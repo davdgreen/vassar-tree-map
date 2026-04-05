@@ -94,11 +94,17 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
 
 #search-wrap {{
   display: flex;
-  align-items: center;
+  flex-direction: column;
   background: rgba(255,255,255,0.97);
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.25);
   padding: 10px 14px;
+  gap: 8px;
+}}
+
+#search-row {{
+  display: flex;
+  align-items: center;
   gap: 8px;
 }}
 
@@ -109,6 +115,7 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
   font-size: 17px;
   background: transparent;
   color: #111;
+  min-width: 0;
 }}
 #search::placeholder {{ color: #aaa; }}
 
@@ -121,18 +128,27 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
   cursor: pointer;
   line-height: 1;
   padding: 0 2px;
+  flex-shrink: 0;
+}}
+
+/* Button row below search */
+#btn-row {{
+  display: flex;
+  gap: 8px;
 }}
 
 /* Filter toggle button */
 #filter-toggle {{
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: 1.5px solid #ddd;
   border-radius: 8px;
-  padding: 4px 10px;
-  font-size: 13px;
+  padding: 6px 10px;
+  font-size: 14px;
   color: #555;
   cursor: pointer;
   white-space: nowrap;
@@ -156,14 +172,16 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
 
 /* Season toggle button */
 #season-toggle {{
+  flex: 1;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
   background: none;
   border: 1.5px solid #ddd;
   border-radius: 8px;
-  padding: 4px 10px;
-  font-size: 13px;
+  padding: 6px 10px;
+  font-size: 14px;
   color: #555;
   cursor: pointer;
   white-space: nowrap;
@@ -244,10 +262,41 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
   padding: 14px;
   flex-direction: column;
   gap: 12px;
-  max-height: calc(100vh - 120px);
+  max-height: calc(100vh - 140px);
   overflow-y: auto;
 }}
 #season-panel.open {{ display: flex; }}
+
+.panel-header {{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}}
+.panel-title {{
+  font-size: 13px;
+  font-weight: 700;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}}
+.panel-header-btns {{
+  display: flex;
+  gap: 4px;
+}}
+.panel-hdr-btn {{
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: #aaa;
+  padding: 2px 6px;
+  border-radius: 6px;
+  line-height: 1;
+  transition: background 0.1s, color 0.1s;
+}}
+.panel-hdr-btn:hover {{ background: #f0f0f0; color: #333; }}
+#exit-season-btn {{ color: #e53935; }}
+#exit-season-btn:hover {{ background: rgba(229,57,53,0.1); color: #e53935; }}
 
 .season-date-row {{
   display: flex;
@@ -414,15 +463,19 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
 
 <div id="ui">
 
-  <!-- Search row -->
+  <!-- Search box -->
   <div id="search-wrap">
-    <span style="font-size:18px;color:#888">🔍</span>
-    <input id="search" type="search" placeholder="Search trees…" autocomplete="off" autocorrect="off" spellcheck="false">
-    <button id="clear-btn" onclick="clearAll()">×</button>
-    <button id="filter-toggle" onclick="toggleFilters()">
-      ⚙ Browse <span id="filter-badge"></span>
-    </button>
-    <button id="season-toggle" onclick="toggleSeason()">🌸 In Season</button>
+    <div id="search-row">
+      <span style="font-size:18px;color:#888;flex-shrink:0">🔍</span>
+      <input id="search" type="search" placeholder="Search trees…" autocomplete="off" autocorrect="off" spellcheck="false">
+      <button id="clear-btn" onclick="clearAll()">×</button>
+    </div>
+    <div id="btn-row">
+      <button id="filter-toggle" onclick="toggleFilters()">
+        ⚙ Browse <span id="filter-badge"></span>
+      </button>
+      <button id="season-toggle" onclick="toggleSeason()">🌸 In Season</button>
+    </div>
   </div>
 
   <!-- Filter panel -->
@@ -463,6 +516,13 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
 
   <!-- Season panel -->
   <div id="season-panel">
+    <div class="panel-header">
+      <span class="panel-title">🌸 In Season</span>
+      <div class="panel-header-btns">
+        <button class="panel-hdr-btn" onclick="closePanelOnly()" title="Minimize panel">⌄</button>
+        <button class="panel-hdr-btn" id="exit-season-btn" onclick="exitSeason()" title="Exit season mode">✕</button>
+      </div>
+    </div>
     <div class="season-date-row">
       <label>Date</label>
       <input type="date" id="season-date" onchange="renderSeasonPanel()">
@@ -561,8 +621,6 @@ function getExcitingTrees(mmdd) {{
 }}
 
 // ── Filter panel toggle ──
-let seasonOpen = false;
-
 function toggleFilters() {{
   const panel = document.getElementById('filter-panel');
   const btn   = document.getElementById('filter-toggle');
@@ -573,30 +631,49 @@ function toggleFilters() {{
 }}
 
 // ── Season panel toggle ──
+// seasonOpen  = whether the panel is visible
+// seasonModeActive = whether trees are currently highlighted in season mode
+
+let seasonModeActive = false;
+
 function toggleSeason() {{
-  const panel = document.getElementById('season-panel');
-  const btn   = document.getElementById('season-toggle');
-  // Close filter panel if open
-  document.getElementById('filter-panel').classList.remove('open');
-  document.getElementById('filter-toggle').classList.remove('active');
-
-  seasonOpen = !seasonOpen;
-  panel.classList.toggle('open', seasonOpen);
-  btn.classList.toggle('active', seasonOpen);
-
-  if (seasonOpen) {{
-    // Set date to today if not set
+  if (!seasonModeActive) {{
+    // Activate season mode and open panel
+    seasonModeActive = true;
+    seasonOpen = true;
+    document.getElementById('filter-panel').classList.remove('open');
+    document.getElementById('filter-toggle').classList.remove('active');
+    document.getElementById('season-panel').classList.add('open');
+    document.getElementById('season-toggle').classList.add('active');
     const inp = document.getElementById('season-date');
-    if (!inp.value) {{
-      const d = new Date();
-      inp.value = d.toISOString().slice(0,10);
-    }}
+    if (!inp.value) inp.value = new Date().toISOString().slice(0,10);
     renderSeasonPanel();
+  }} else if (seasonOpen) {{
+    // Panel is open — just collapse it, keep highlights
+    closePanelOnly();
   }} else {{
-    // Restore all markers when closing season panel
-    showAll();
-    clearRoute();
+    // Panel is closed but season is active — reopen it
+    seasonOpen = true;
+    document.getElementById('season-panel').classList.add('open');
   }}
+}}
+
+function closePanelOnly() {{
+  seasonOpen = false;
+  document.getElementById('season-panel').classList.remove('open');
+  // season-toggle stays orange because season mode is still active
+}}
+
+function exitSeason() {{
+  seasonModeActive = false;
+  seasonOpen = false;
+  activeSeasonRows.clear();
+  seasonActiveAll = false;
+  document.getElementById('season-panel').classList.remove('open');
+  document.getElementById('season-toggle').classList.remove('active');
+  clearRoute();
+  showAll();
+  setStatus('');
 }}
 
 // ── Core filter logic ──
@@ -712,6 +789,7 @@ function setStatus(msg) {{
 
 let activeSeasonRows = new Set(); // species names currently highlighted on map
 let seasonActiveAll = false;
+let seasonOpen = false;
 
 function getSelectedMMDD() {{
   const val = document.getElementById('season-date').value; // YYYY-MM-DD
