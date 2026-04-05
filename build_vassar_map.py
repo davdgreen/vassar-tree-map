@@ -978,13 +978,35 @@ function nearestNeighbor(points, start) {{
   return path;
 }}
 
+function clusterWaypoints(points, radiusDeg) {{
+  // Single-pass greedy spatial clustering.
+  // Trees within radiusDeg (~100m) of each other become one "area stop".
+  // Returns array of {{ lat, lng, count }} cluster centroids.
+  const assigned = new Array(points.length).fill(false);
+  const clusters = [];
+  for (let i = 0; i < points.length; i++) {{
+    if (assigned[i]) continue;
+    const members = [i];
+    assigned[i] = true;
+    for (let j = i + 1; j < points.length; j++) {{
+      if (assigned[j]) continue;
+      const d = Math.sqrt(Math.pow(points[i][0]-points[j][0],2) + Math.pow(points[i][1]-points[j][1],2));
+      if (d < radiusDeg) {{ members.push(j); assigned[j] = true; }}
+    }}
+    const lat = members.reduce((s,k) => s + points[k][0], 0) / members.length;
+    const lng = members.reduce((s,k) => s + points[k][1], 0) / members.length;
+    clusters.push({{ lat, lng, count: members.length }});
+  }}
+  return clusters;
+}}
+
 function buildWalkRoute() {{
   clearRoute();
 
   const mmdd = getSelectedMMDD();
   let excitingMarkers = getExcitingTrees(mmdd).map(h => h.marker);
 
-  // Filter to only the species currently highlighted if any
+  // Filter to species currently highlighted
   if (activeSeasonRows.size > 0) {{
     excitingMarkers = excitingMarkers.filter(m => activeSeasonRows.has(m._treeData.name));
   }}
@@ -995,36 +1017,25 @@ function buildWalkRoute() {{
     return;
   }}
 
-  // Determine start point: user GPS if available, else Main Gate
   const startPt = window._userLoc || MAIN_GATE;
 
-  // Build waypoint list:
-  // - Specific species selected → visit individual trees (user wants to see all of them)
-  // - "Show All" mode → one representative per species (diverse campus tour)
-  let waypoints;
-  if (activeSeasonRows.size > 0) {{
-    // Individual trees for the selected species, capped at 15 closest to start
-    waypoints = excitingMarkers.map(m => [m._treeData.lat, m._treeData.lng]);
-  }} else {{
-    // One rep per species for the "all in season" tour
-    const seenSpecies = {{}};
-    excitingMarkers.forEach(m => {{
-      if (!seenSpecies[m._treeData.name]) seenSpecies[m._treeData.name] = m;
-    }});
-    waypoints = Object.values(seenSpecies).map(m => [m._treeData.lat, m._treeData.lng]);
-  }}
+  // Cluster trees within ~100m of each other into area stops.
+  // This gives a realistic "rough tour through areas" rather than zigzagging
+  // to every individual tree on a lawn.
+  const allPoints = excitingMarkers.map(m => [m._treeData.lat, m._treeData.lng]);
+  let clusters = clusterWaypoints(allPoints, 0.0009); // 0.0009° ≈ 100m
 
-  // Cap at 15 — pick closest to start
-  if (waypoints.length > 15) {{
-    waypoints = waypoints
-      .map(p => ({{ p, d: Math.pow(p[0]-startPt[0],2)+Math.pow(p[1]-startPt[1],2) }}))
-      .sort((a,b) => a.d - b.d)
-      .slice(0, 15)
-      .map(x => x.p);
-  }}
+  // Prefer larger clusters (more trees per stop), cap at 12
+  clusters.sort((a, b) => b.count - a.count);
+  clusters = clusters.slice(0, 12);
+
+  const totalTrees = excitingMarkers.length;
+  let waypoints = clusters.map(c => [c.lat, c.lng]);
 
   // Order waypoints with nearest-neighbor heuristic
   const ordered = nearestNeighbor(waypoints, startPt);
+  // Attach tree counts to ordered stops for the info message
+  const orderedClusters = ordered.map(pt => clusters.find(c => c.lat === pt[0] && c.lng === pt[1]) || {{ count: 1 }});
   const allWaypoints = [startPt, ...ordered];
 
   const lrWaypoints = allWaypoints.map(p => L.latLng(p[0], p[1]));
@@ -1052,7 +1063,9 @@ function buildWalkRoute() {{
     const mins = Math.round(route.summary.totalTime / 60);
     const info = document.getElementById('route-info');
     info.style.display = 'block';
-    info.textContent = `🚶 ${{dist}} km · ~${{mins}} min walk · ${{ordered.length}} stop${{ordered.length!==1?'s':''}}`;
+    const coveredTrees = orderedClusters.reduce((s, c) => s + c.count, 0);
+    info.textContent = `🚶 ${{dist}} km · ~${{mins}} min · ${{ordered.length}} stops · ${{coveredTrees}}/${{totalTrees}} trees`;
+
     document.getElementById('clear-route-btn').style.display = 'block';
   }});
 
