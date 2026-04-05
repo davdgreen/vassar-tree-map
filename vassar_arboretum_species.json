@@ -1,0 +1,849 @@
+{
+  "source": "Vassar College Arboretum - ArborScope Inventory",
+  "inventory_id": "08CCC6C7",
+  "location": "Poughkeepsie, NY 12604 (USDA Zone 6a/6b)",
+  "total_trees_and_shrubs": 2479,
+  "total_unique_species": 168,
+  "species": [
+    {
+      "common_name": "Pine-Eastern White",
+      "genus": "Pinus",
+      "count_on_campus": 413
+    },
+    {
+      "common_name": "Spruce-Norway",
+      "genus": "Picea",
+      "count_on_campus": 223
+    },
+    {
+      "common_name": "Hemlock-Canadian",
+      "genus": "Tsuga",
+      "count_on_campus": 119
+    },
+    {
+      "common_name": "Crabapple",
+      "genus": "Malus",
+      "count_on_campus": 119
+    },
+    {
+      "common_name": "Oak-Northern Red",
+      "genus": "Quercus",
+      "count_on_campus": 94
+    },
+    {
+      "common_name": "Arborvitae-White Cedar",
+      "genus": "Thuja",
+      "count_on_campus": 82
+    },
+    {
+      "common_name": "Maple-Red",
+      "genus": "Acer",
+      "count_on_campus": 80
+    },
+    {
+      "common_name": "Maple-Sugar",
+      "genus": "Acer",
+      "count_on_campus": 72
+    },
+    {
+      "common_name": "Dogwood-Flowering",
+      "genus": "Cornus",
+      "count_on_campus": 72
+    },
+    {
+      "common_name": "Birch-River",
+      "genus": "Betula",
+      "count_on_campus": 59
+    },
+    {
+      "common_name": "Maple-Norway",
+      "genus": "Acer",
+      "count_on_campus": 53
+    },
+    {
+      "common_name": "Honeylocust-Thornless Common",
+      "genus": "Gleditsia",
+      "count_on_campus": 52
+    },
+    {
+      "common_name": "Oak-Pin",
+      "genus": "Quercus",
+      "count_on_campus": 47
+    },
+    {
+      "common_name": "Douglas Fir",
+      "genus": "Pseudotsuga",
+      "count_on_campus": 45
+    },
+    {
+      "common_name": "Fir-White",
+      "genus": "Abies",
+      "count_on_campus": 41
+    },
+    {
+      "common_name": "Linden",
+      "genus": "Tilia",
+      "count_on_campus": 32
+    },
+    {
+      "common_name": "Elm-Chinese",
+      "genus": "Ulmus",
+      "count_on_campus": 28
+    },
+    {
+      "common_name": "Beech-European",
+      "genus": "Fagus",
+      "count_on_campus": 27
+    },
+    {
+      "common_name": "Yew-English",
+      "genus": "Taxus",
+      "count_on_campus": 27
+    },
+    {
+      "common_name": "Zelkova-Japanese",
+      "genus": "Zelkova",
+      "count_on_campus": 22
+    },
+    {
+      "common_name": "Magnolia",
+      "genus": "Magnolia",
+      "count_on_campus": 22
+    },
+    {
+      "common_name": "Maple-Amur",
+      "genus": "Acer",
+      "count_on_campus": 21
+    },
+    {
+      "common_name": "Maple-Paperbark",
+      "genus": "Acer",
+      "count_on_campus": 21
+    },
+    {
+      "common_name": "Magnolia-Star",
+      "genus": "Magnolia",
+      "count_on_campus": 20
+    },
+    {
+      "common_name": "Yellowwood-American",
+      "genus": "Cladrastis",
+      "count_on_campus": 20
+    },
+    {
+      "common_name": "Dogwood-Kousa",
+      "genus": "Cornus",
+      "count_on_campus": 19
+    },
+    {
+      "common_name": "Falsecypress-Hinoki",
+      "genus": "Chamaecyparis",
+      "count_on_campus": 19
+    },
+    {
+      "common_name": "Planetree-London",
+      "genus": "Platanus",
+      "count_on_campus": 18
+    },
+    {
+      "common_name": "Elm-American",
+      "genus": "Ulmus",
+      "count_on_campus": 18
+    },
+    {
+      "common_name": "Sweetgum-Common",
+      "genus": "Liquidambar",
+      "count_on_campus": 16
+    },
+    {
+      "common_name": "Oak-Swamp White",
+      "genus": "Quercus",
+      "count_on_campus": 15
+    },
+    {
+      "common_name": "Pine-Austrian",
+      "genus": "Pinus",
+      "count_on_campus": 15
+    },
+    {
+      "common_name": "Katsuratree",
+      "genus": "Cercidiphyllum",
+      "count_on_campus": 14
+    },
+    {
+      "common_name": "Redbud-Eastern",
+      "genus": "Cercis",
+      "count_on_campus": 14
+    },
+    {
+      "common_name": "Stewartia-Japanese",
+      "genus": "Stewartia",
+      "count_on_campus": 13
+    },
+    {
+      "common_name": "Tupelo-Black",
+      "genus": "Nyssa",
+      "count_on_campus": 12
+    },
+    {
+      "common_name": "Spruce-Colorado Blue",
+      "genus": "Picea",
+      "count_on_campus": 12
+    },
+    {
+      "common_name": "Oak-English",
+      "genus": "Quercus",
+      "count_on_campus": 12
+    },
+    {
+      "common_name": "Willow",
+      "genus": "Salix",
+      "count_on_campus": 12
+    },
+    {
+      "common_name": "Maple-Freeman's",
+      "genus": "Acer",
+      "count_on_campus": 12
+    },
+    {
+      "common_name": "Oak-White",
+      "genus": "Quercus",
+      "count_on_campus": 11
+    },
+    {
+      "common_name": "Larch-Common",
+      "genus": "Larix",
+      "count_on_campus": 11
+    },
+    {
+      "common_name": "Cherry",
+      "genus": "Prunus",
+      "count_on_campus": 11
+    },
+    {
+      "common_name": "Common Baldcypress",
+      "genus": "Taxodium",
+      "count_on_campus": 11
+    },
+    {
+      "common_name": "Japanese Umbrella Pine",
+      "genus": "Sciadopitys",
+      "count_on_campus": 10
+    },
+    {
+      "common_name": "Beech-American",
+      "genus": "Fagus",
+      "count_on_campus": 10
+    },
+    {
+      "common_name": "Tuliptree",
+      "genus": "Liriodendron",
+      "count_on_campus": 10
+    },
+    {
+      "common_name": "Maple-Japanese",
+      "genus": "Acer",
+      "count_on_campus": 10
+    },
+    {
+      "common_name": "Juniper-Eastern Redcedar",
+      "genus": "Juniperus",
+      "count_on_campus": 9
+    },
+    {
+      "common_name": "Magnolia-Saucer",
+      "genus": "Magnolia",
+      "count_on_campus": 8
+    },
+    {
+      "common_name": "Pear-Callery",
+      "genus": "Pyrus",
+      "count_on_campus": 8
+    },
+    {
+      "common_name": "Leyland Cypress",
+      "genus": "x Cupressocyparis",
+      "count_on_campus": 8
+    },
+    {
+      "common_name": "Hawthorn",
+      "genus": "Crataegus",
+      "count_on_campus": 8
+    },
+    {
+      "common_name": "Hickory-Shagbark",
+      "genus": "Carya",
+      "count_on_campus": 8
+    },
+    {
+      "common_name": "Arborvitae-Green Giant",
+      "genus": "Thuja",
+      "count_on_campus": 8
+    },
+    {
+      "common_name": "Maple-Three Flower",
+      "genus": "Acer",
+      "count_on_campus": 7
+    },
+    {
+      "common_name": "Birch-Paper",
+      "genus": "Betula",
+      "count_on_campus": 7
+    },
+    {
+      "common_name": "Hornbeam-European",
+      "genus": "Carpinus",
+      "count_on_campus": 7
+    },
+    {
+      "common_name": "Serviceberry",
+      "genus": "Amelanchier",
+      "count_on_campus": 7
+    },
+    {
+      "common_name": "Dogwood-Cornelian Cherry",
+      "genus": "Cornus",
+      "count_on_campus": 7
+    },
+    {
+      "common_name": "Oak-Scarlet",
+      "genus": "Quercus",
+      "count_on_campus": 7
+    },
+    {
+      "common_name": "Falsecypress-Sawara Cypress",
+      "genus": "Chamaecyparis",
+      "count_on_campus": 7
+    },
+    {
+      "common_name": "Japanese Cryptomeria",
+      "genus": "Cryptomeria",
+      "count_on_campus": 7
+    },
+    {
+      "common_name": "Falsecypress-Chamaecyparis",
+      "genus": "Chamaecyparis",
+      "count_on_campus": 6
+    },
+    {
+      "common_name": "Cherry-Flowering",
+      "genus": "Prunus",
+      "count_on_campus": 6
+    },
+    {
+      "common_name": "Persimmon-Common",
+      "genus": "Diospyros",
+      "count_on_campus": 6
+    },
+    {
+      "common_name": "Yew-Japanese",
+      "genus": "Taxus",
+      "count_on_campus": 6
+    },
+    {
+      "common_name": "Poplar-Aspen",
+      "genus": "Populus",
+      "count_on_campus": 6
+    },
+    {
+      "common_name": "Golden Larch",
+      "genus": "Pseudolarix",
+      "count_on_campus": 5
+    },
+    {
+      "common_name": "Fir-Balsam",
+      "genus": "Abies",
+      "count_on_campus": 5
+    },
+    {
+      "common_name": "Oak-Willow",
+      "genus": "Quercus",
+      "count_on_campus": 5
+    },
+    {
+      "common_name": "Hazel-Turkish Filbert",
+      "genus": "Corylus",
+      "count_on_campus": 5
+    },
+    {
+      "common_name": "Ginkgo",
+      "genus": "Ginkgo",
+      "count_on_campus": 5
+    },
+    {
+      "common_name": "Dawn Redwood",
+      "genus": "Metasequoia",
+      "count_on_campus": 5
+    },
+    {
+      "common_name": "Kentucky Coffeetree",
+      "genus": "Gymnocladus",
+      "count_on_campus": 5
+    },
+    {
+      "common_name": "Hickory-Pignut",
+      "genus": "Carya",
+      "count_on_campus": 5
+    },
+    {
+      "common_name": "Styrax-Japanese Snowbell",
+      "genus": "Styrax",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Cherry-Sargent",
+      "genus": "Prunus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Cedar-Deodar",
+      "genus": "Cedrus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Pine-Scotch",
+      "genus": "Pinus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Hackberry",
+      "genus": "Celtis",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Sassafras-Common",
+      "genus": "Sassafras",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Serviceberry-Downy",
+      "genus": "Amelanchier",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Ash-Green",
+      "genus": "Fraxinus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Magnolia-Cucumbertree",
+      "genus": "Magnolia",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Cherry-Yoshino",
+      "genus": "Prunus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Cotinus-Common Smoketree",
+      "genus": "Cotinus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Locust-Black",
+      "genus": "Robinia",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Sycamore-American",
+      "genus": "Platanus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Cedar-Atlas",
+      "genus": "Cedrus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Hornbeam-American",
+      "genus": "Carpinus",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Fir-Fraser",
+      "genus": "Abies",
+      "count_on_campus": 4
+    },
+    {
+      "common_name": "Maple-David's",
+      "genus": "Acer",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Holly-American",
+      "genus": "Ilex",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Birch-Gray",
+      "genus": "Betula",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Pine-Japanese White",
+      "genus": "Pinus",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Walnut-Black",
+      "genus": "Juglans",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Maple-Hedge",
+      "genus": "Acer",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Oak-Sawtooth",
+      "genus": "Quercus",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Maple-Shantung",
+      "genus": "Acer",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Magnolia-Sweetbay",
+      "genus": "Magnolia",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Corktree-Amur",
+      "genus": "Phellodendron",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Oak",
+      "genus": "Quercus",
+      "count_on_campus": 3
+    },
+    {
+      "common_name": "Not on list",
+      "genus": "Non-listed Genus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Mulberry-White",
+      "genus": "Morus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Maackia-Amur",
+      "genus": "Maackia",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Oak-Bur",
+      "genus": "Quercus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Horsechestnut-Red",
+      "genus": "Aesculus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Poplar-Eastern",
+      "genus": "Populus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Enkianthus",
+      "genus": "Enkianthus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Hemlock-Carolina",
+      "genus": "Tsuga",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Crabapple-Flowering",
+      "genus": "Malus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Oak-Black",
+      "genus": "Quercus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Pine-Limber",
+      "genus": "Pinus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Cherry-Weeping",
+      "genus": "Prunus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Cherry-Black",
+      "genus": "Prunus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Pawpaw-Common",
+      "genus": "Asimina",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Pine",
+      "genus": "Pinus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Oak-Chinkapin",
+      "genus": "Quercus",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Linden-Littleleaf",
+      "genus": "Tilia",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Silverbell-Carolina",
+      "genus": "Halesia",
+      "count_on_campus": 2
+    },
+    {
+      "common_name": "Stewartia",
+      "genus": "Stewartia",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Maple-Boxelder",
+      "genus": "Acer",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Hardy Rubber Tree",
+      "genus": "Eucommia",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Elm-Siberian",
+      "genus": "Ulmus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Elaeagnus-Russian Olive",
+      "genus": "Elaeagnus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Pine-Swiss Stone",
+      "genus": "Pinus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Willow-Pussy",
+      "genus": "Salix",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Spruce-White",
+      "genus": "Picea",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Pagodatree-Japanese",
+      "genus": "Sophora",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Mimosa",
+      "genus": "Albizia",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Oak-Chestnut",
+      "genus": "Quercus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Osage Orange",
+      "genus": "Maclura",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Maple-Ivyleaved",
+      "genus": "Acer",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Dogwood-Pagoda",
+      "genus": "Cornus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Apple-Common",
+      "genus": "Malus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Dogwood-Gray",
+      "genus": "Cornus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Pine-Japanese Red",
+      "genus": "Pinus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Hawthorn-English",
+      "genus": "Crataegus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Magnolia-Bigleaf",
+      "genus": "Magnolia",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Maple-Silver",
+      "genus": "Acer",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Magnolia-Southern",
+      "genus": "Magnolia",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Elm-Smooth Leaved",
+      "genus": "Ulmus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Arborvitae-Oriental",
+      "genus": "Thuja",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Styrax-Snowbell",
+      "genus": "Styrax",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Mountain Ash-Korean",
+      "genus": "Sorbus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Viburnum",
+      "genus": "Viburnum",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Seven-son Flower",
+      "genus": "Heptacodium",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Ehretia",
+      "genus": "Ehretia",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Crabapple-Sargent",
+      "genus": "Malus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Maple-Trident",
+      "genus": "Acer",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Maple-Sycamore",
+      "genus": "Acer",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Tree of Heaven",
+      "genus": "Ailanthus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Cherry-Kwanzan",
+      "genus": "Prunus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Larch",
+      "genus": "Larix",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Holly-English",
+      "genus": "Ilex",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Oak-Shingle",
+      "genus": "Quercus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Chestnut-Chinese",
+      "genus": "Castanea",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Asiatic Sweetleaf",
+      "genus": "Symplocos",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Alder-Speckled",
+      "genus": "Alnus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Linden-American",
+      "genus": "Tilia",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Pine-Virginia",
+      "genus": "Pinus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Pine-Lacebark",
+      "genus": "Pinus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Linden-Silver",
+      "genus": "Tilia",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Elm-Slippery",
+      "genus": "Ulmus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Pine-Japanese Black",
+      "genus": "Pinus",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Spruce-Tigertail",
+      "genus": "Picea",
+      "count_on_campus": 1
+    },
+    {
+      "common_name": "Witchhazel",
+      "genus": "Hamamelis",
+      "count_on_campus": 1
+    }
+  ]
+}
