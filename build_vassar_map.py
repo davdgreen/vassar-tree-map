@@ -557,8 +557,9 @@ const TYPE_COLOR = {{
 
 // Map
 const map = L.map('map', {{ center: [41.6873, -73.8966], zoom: 16, zoomControl: true }});
-L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
-  attribution: '© OpenStreetMap contributors', maxZoom: 20
+L.tileLayer('https://{{s}}.basemaps.cartocdn.com/rastertiles/voyager/{{z}}/{{x}}/{{y}}{{r}}.png', {{
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+  subdomains: 'abcd', maxZoom: 20
 }}).addTo(map);
 
 const layer = L.layerGroup().addTo(map);
@@ -1023,8 +1024,7 @@ function buildWalkRoute() {{
   routingControl = L.Routing.control({{
     waypoints: lrWaypoints,
     router: L.Routing.osrmv1({{
-      serviceUrl: 'https://router.project-osrm.org/route/v1',
-      profile: 'foot',
+      serviceUrl: 'https://routing.openstreetmap.de/routed-foot/route/v1',
     }}),
     lineOptions: {{
       styles: [{{ color: '#1565c0', weight: 4, opacity: 0.8 }}],
@@ -1077,7 +1077,12 @@ function locateMe() {{
       fillOpacity: 0.9, weight: 2
     }}).addTo(map).bindPopup('You are here').openPopup();
     map.setView(ll, 18);
-  }}, () => alert('Could not get location'));
+  }}, err => {{
+    const msg = {{1:'Permission denied — allow location in browser settings',
+                 2:'Position unavailable',
+                 3:'Request timed out'}}[err.code] || 'Unknown error';
+    alert('Location failed: ' + msg);
+  }});
 }}
 
 document.getElementById('search').addEventListener('input', onSearch);
