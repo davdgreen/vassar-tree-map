@@ -1,0 +1,2658 @@
+{
+  "Witchhazel": {
+    "sci": "Hamamelis virginiana",
+    "events": [
+      {
+        "name": "Late-fall bloom",
+        "type": "bloom",
+        "desc": "Spidery yellow flowers appear on bare branches in late fall — one of the last trees to bloom",
+        "start": "10-15",
+        "end": "12-01",
+        "icon": "🌸"
+      },
+      {
+        "name": "Golden fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn rich gold-yellow just as flowers begin to open",
+        "start": "10-15",
+        "end": "11-15",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Dogwood-Cornelian Cherry": {
+    "sci": "Cornus mas",
+    "events": [
+      {
+        "name": "Early spring bloom",
+        "type": "bloom",
+        "desc": "Tiny yellow flowers cover bare branches — one of the very first trees to bloom on campus",
+        "start": "03-05",
+        "end": "04-05",
+        "icon": "🌸"
+      },
+      {
+        "name": "Bright red fruit",
+        "type": "fruit",
+        "desc": "Glossy cherry-red oval fruits ripen, edible and bird-attracting",
+        "start": "07-15",
+        "end": "09-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Willow-Pussy": {
+    "sci": "Salix discolor",
+    "events": [
+      {
+        "name": "Silver catkins",
+        "type": "bloom",
+        "desc": "Soft silver catkins emerge on bare branches — a classic early spring sight",
+        "start": "03-01",
+        "end": "04-15",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Magnolia-Star": {
+    "sci": "Magnolia stellata",
+    "events": [
+      {
+        "name": "Star magnolia bloom",
+        "type": "bloom",
+        "desc": "Masses of white star-shaped flowers open on bare branches — first magnolia to bloom",
+        "start": "03-25",
+        "end": "04-20",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Magnolia-Saucer": {
+    "sci": "Magnolia x soulangeana",
+    "events": [
+      {
+        "name": "Saucer magnolia bloom",
+        "type": "bloom",
+        "desc": "Large pink-and-white saucer-shaped flowers on bare branches, one of spring's most spectacular shows",
+        "start": "04-01",
+        "end": "04-25",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Magnolia": {
+    "sci": "Magnolia sp",
+    "events": [
+      {
+        "name": "Magnolia bloom",
+        "type": "bloom",
+        "desc": "Large fragrant flowers open before or with the emerging leaves",
+        "start": "04-05",
+        "end": "05-10",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Magnolia-Sweetbay": {
+    "sci": "Magnolia virginiana",
+    "events": [
+      {
+        "name": "Sweetbay magnolia bloom",
+        "type": "bloom",
+        "desc": "Creamy white lemon-scented flowers bloom over a long season",
+        "start": "05-15",
+        "end": "06-30",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Magnolia-Cucumbertree": {
+    "sci": "Magnolia acuminata",
+    "events": [
+      {
+        "name": "Cucumbertree bloom",
+        "type": "bloom",
+        "desc": "Pale yellow-green tulip-like flowers, subtle but distinctive",
+        "start": "04-20",
+        "end": "05-15",
+        "icon": "🌸"
+      },
+      {
+        "name": "Cucumber-like fruits",
+        "type": "fruit",
+        "desc": "Cucumber-shaped red-to-pink aggregate fruits are eye-catching in late summer",
+        "start": "08-15",
+        "end": "10-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Magnolia-Bigleaf": {
+    "sci": "Magnolia macrophylla",
+    "events": [
+      {
+        "name": "Bigleaf magnolia bloom",
+        "type": "bloom",
+        "desc": "Huge creamy white flowers up to 12\" across — among the largest of any hardy tree",
+        "start": "05-15",
+        "end": "06-15",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Magnolia-Southern": {
+    "sci": "Magnolia grandiflora",
+    "events": [
+      {
+        "name": "Southern magnolia bloom",
+        "type": "bloom",
+        "desc": "Large fragrant white flowers on an evergreen tree — dramatic all summer",
+        "start": "06-01",
+        "end": "07-15",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Serviceberry": {
+    "sci": "Amelanchier canadensis",
+    "events": [
+      {
+        "name": "Spring bloom",
+        "type": "bloom",
+        "desc": "Clouds of white star-shaped flowers — among the first trees to bloom after the magnolias",
+        "start": "04-15",
+        "end": "05-05",
+        "icon": "🌸"
+      },
+      {
+        "name": "Edible blue-purple berries",
+        "type": "fruit",
+        "desc": "Sweet blue-purple berries ripen — edible, loved by birds",
+        "start": "06-10",
+        "end": "07-10",
+        "icon": "🍎"
+      },
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn vibrant orange and red",
+        "start": "10-01",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Serviceberry-Downy": {
+    "sci": "Amelanchier arborea",
+    "events": [
+      {
+        "name": "Spring bloom",
+        "type": "bloom",
+        "desc": "White flower clusters on bare branches — one of the earliest to bloom",
+        "start": "04-15",
+        "end": "05-05",
+        "icon": "🌸"
+      },
+      {
+        "name": "Summer berries",
+        "type": "fruit",
+        "desc": "Sweet edible blue-purple berries ripen",
+        "start": "06-10",
+        "end": "07-10",
+        "icon": "🍎"
+      },
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Vivid orange-red fall foliage",
+        "start": "10-01",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Cherry-Yoshino": {
+    "sci": "Prunus x yedoensis",
+    "events": [
+      {
+        "name": "Pink-white bloom",
+        "type": "bloom",
+        "desc": "Pale pink blooms smother the tree — one of the most celebrated spring-flowering cherries",
+        "start": "04-10",
+        "end": "05-01",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Cherry-Kwanzan": {
+    "sci": "Prunus serrulata",
+    "events": [
+      {
+        "name": "Double-pink bloom",
+        "type": "bloom",
+        "desc": "Double deep-pink pompom flowers are among the showiest of all flowering cherries",
+        "start": "04-15",
+        "end": "05-05",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Cherry-Sargent": {
+    "sci": "Prunus sargentii",
+    "events": [
+      {
+        "name": "Deep-pink bloom",
+        "type": "bloom",
+        "desc": "Rich deep-pink single flowers blanket the tree before the leaves open",
+        "start": "04-10",
+        "end": "04-30",
+        "icon": "🌸"
+      },
+      {
+        "name": "Brilliant fall color",
+        "type": "fall_color",
+        "desc": "Orange-red fall color comes exceptionally early",
+        "start": "09-20",
+        "end": "10-15",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Cherry-Weeping": {
+    "sci": "Prunus subhirtella",
+    "events": [
+      {
+        "name": "Cascading bloom",
+        "type": "bloom",
+        "desc": "Weeping branches drip with pink or white flowers in a dramatic waterfall effect",
+        "start": "04-10",
+        "end": "04-30",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Cherry-Flowering": {
+    "sci": "Prunus serrulata",
+    "events": [
+      {
+        "name": "Spring bloom",
+        "type": "bloom",
+        "desc": "White or pink flowers densely cover the branches — a classic spring display",
+        "start": "04-15",
+        "end": "05-05",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Cherry-Black": {
+    "sci": "Prunus serotina",
+    "events": [
+      {
+        "name": "White flower clusters",
+        "type": "bloom",
+        "desc": "Long racemes of small white flowers dangle from branches",
+        "start": "04-20",
+        "end": "05-15",
+        "icon": "🌸"
+      },
+      {
+        "name": "Bird-magnet fruits",
+        "type": "fruit",
+        "desc": "Small black cherries ripen — extremely attractive to birds",
+        "start": "07-15",
+        "end": "09-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Cherry": {
+    "sci": "Prunus sp",
+    "events": [
+      {
+        "name": "Spring bloom",
+        "type": "bloom",
+        "desc": "White or pink cherry blossoms brighten the landscape",
+        "start": "04-10",
+        "end": "05-05",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Redbud-Eastern": {
+    "sci": "Cercis canadensis",
+    "events": [
+      {
+        "name": "Magenta bloom",
+        "type": "bloom",
+        "desc": "Vivid magenta-pink flowers stud every branch and even the trunk before leaves appear",
+        "start": "04-20",
+        "end": "05-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Heart-shaped leaves turn clear yellow",
+        "start": "10-05",
+        "end": "10-25",
+        "icon": "🍂"
+      },
+      {
+        "name": "Persistent seed pods",
+        "type": "fruit",
+        "desc": "Flat maroon-brown bean pods hang attractively through winter",
+        "start": "10-01",
+        "end": "02-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Dogwood-Flowering": {
+    "sci": "Cornus florida",
+    "events": [
+      {
+        "name": "White bract bloom",
+        "type": "bloom",
+        "desc": "Large white four-bract flowers cover the tiered horizontal branches — campus classic",
+        "start": "04-20",
+        "end": "05-15",
+        "icon": "🌸"
+      },
+      {
+        "name": "Scarlet fruit clusters",
+        "type": "fruit",
+        "desc": "Glossy red berries in clusters appear — loved by migrating birds",
+        "start": "09-01",
+        "end": "10-15",
+        "icon": "🍎"
+      },
+      {
+        "name": "Red-to-purple fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn deep scarlet-red, some tinged purple",
+        "start": "09-25",
+        "end": "10-20",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Dogwood-Kousa": {
+    "sci": "Cornus kousa",
+    "events": [
+      {
+        "name": "White star-like bloom",
+        "type": "bloom",
+        "desc": "Four-pointed star-like white bracts appear after the leaves — later and longer-lasting than Flowering Dogwood",
+        "start": "05-20",
+        "end": "06-25",
+        "icon": "🌸"
+      },
+      {
+        "name": "Raspberry-like fruits",
+        "type": "fruit",
+        "desc": "Pink-red raspberry-textured fruits hang like ornaments — edible",
+        "start": "08-20",
+        "end": "10-01",
+        "icon": "🍎"
+      },
+      {
+        "name": "Exfoliating bark",
+        "type": "bark",
+        "desc": "With age, bark flakes into a puzzle-piece mosaic of tan, brown, and gray",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      }
+    ]
+  },
+  "Dogwood-Pagoda": {
+    "sci": "Cornus alternifolia",
+    "events": [
+      {
+        "name": "White flower clusters",
+        "type": "bloom",
+        "desc": "Flat clusters of small white flowers on strongly layered horizontal branches",
+        "start": "05-01",
+        "end": "05-25",
+        "icon": "🌸"
+      },
+      {
+        "name": "Blue-black berries on red stalks",
+        "type": "fruit",
+        "desc": "Blue-black berries on vivid red-pink stalks are ornamentally striking",
+        "start": "08-01",
+        "end": "09-30",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Dogwood-Gray": {
+    "sci": "Cornus racemosa",
+    "events": [
+      {
+        "name": "White flower clusters",
+        "type": "bloom",
+        "desc": "Flat clusters of small white flowers",
+        "start": "05-15",
+        "end": "06-15",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Pear-Callery": {
+    "sci": "Pyrus calleryana",
+    "events": [
+      {
+        "name": "Early white bloom",
+        "type": "bloom",
+        "desc": "Dense white flowers completely smother the tree — spectacular but briefly",
+        "start": "04-01",
+        "end": "04-20",
+        "icon": "🌸"
+      },
+      {
+        "name": "Crimson-maroon fall color",
+        "type": "fall_color",
+        "desc": "Brilliant crimson to purple-maroon fall color, often one of the best on campus",
+        "start": "10-15",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Crabapple": {
+    "sci": "Malus sp",
+    "events": [
+      {
+        "name": "Spring bloom",
+        "type": "bloom",
+        "desc": "Masses of pink-to-white flowers smother the tree — one of spring's peak flowering moments",
+        "start": "04-15",
+        "end": "05-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Persistent fruits",
+        "type": "fruit",
+        "desc": "Small red, orange, or yellow fruits cling to branches through fall and winter",
+        "start": "09-15",
+        "end": "02-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Crabapple-Flowering": {
+    "sci": "Malus pumila",
+    "events": [
+      {
+        "name": "Spring bloom",
+        "type": "bloom",
+        "desc": "Dense clusters of pink or white fragrant flowers",
+        "start": "04-15",
+        "end": "05-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Persistent fruits",
+        "type": "fruit",
+        "desc": "Colorful small fruits persist through winter",
+        "start": "09-15",
+        "end": "02-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Crabapple-Sargent": {
+    "sci": "Malus sargentii",
+    "events": [
+      {
+        "name": "White bloom",
+        "type": "bloom",
+        "desc": "Masses of pure white flowers — extremely floriferous",
+        "start": "04-20",
+        "end": "05-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Bright red tiny fruits",
+        "type": "fruit",
+        "desc": "Tiny bright-red fruits are persistent and very ornamental",
+        "start": "09-15",
+        "end": "02-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Hawthorn": {
+    "sci": "Crataegus sp",
+    "events": [
+      {
+        "name": "White bloom",
+        "type": "bloom",
+        "desc": "Clusters of white flowers with a distinctive aroma",
+        "start": "04-20",
+        "end": "05-15",
+        "icon": "🌸"
+      },
+      {
+        "name": "Red or orange fruits",
+        "type": "fruit",
+        "desc": "Small apple-like fruits persist into winter and attract birds",
+        "start": "09-15",
+        "end": "01-15",
+        "icon": "🍎"
+      },
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Foliage turns orange to red",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Hawthorn-English": {
+    "sci": "Crataegus laevigata",
+    "events": [
+      {
+        "name": "White bloom",
+        "type": "bloom",
+        "desc": "Dense clusters of white flowers",
+        "start": "04-20",
+        "end": "05-15",
+        "icon": "🌸"
+      },
+      {
+        "name": "Red haws persist",
+        "type": "fruit",
+        "desc": "Bright red fruits cling through winter, attracting birds",
+        "start": "09-15",
+        "end": "01-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Apple-Common": {
+    "sci": "Malus domestica",
+    "events": [
+      {
+        "name": "Pink-white bloom",
+        "type": "bloom",
+        "desc": "Classic apple blossoms — fragrant pink-tinged white flowers",
+        "start": "04-15",
+        "end": "05-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Fruits ripen",
+        "type": "fruit",
+        "desc": "Apples color up and ripen",
+        "start": "08-15",
+        "end": "10-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Maple-Red": {
+    "sci": "Acer rubrum",
+    "events": [
+      {
+        "name": "Red flower clusters",
+        "type": "bloom",
+        "desc": "Tiny red flower clusters appear on bare branches — first maple to bloom, the harbinger of spring",
+        "start": "03-25",
+        "end": "04-20",
+        "icon": "🌸"
+      },
+      {
+        "name": "Red fall color",
+        "type": "fall_color",
+        "desc": "Brilliant red to orange-red fall color; often one of the first maples to turn",
+        "start": "09-25",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Sugar": {
+    "sci": "Acer saccharum",
+    "events": [
+      {
+        "name": "Spring flowers",
+        "type": "bloom",
+        "desc": "Yellowish flower clusters emerge just as the leaves unfold",
+        "start": "04-15",
+        "end": "05-05",
+        "icon": "🌸"
+      },
+      {
+        "name": "Peak fall color",
+        "type": "fall_color",
+        "desc": "Perhaps the finest fall color of any tree — blazing orange, red, and yellow simultaneously",
+        "start": "10-01",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Freeman's": {
+    "sci": "Acer x freemanii",
+    "events": [
+      {
+        "name": "Early red fall color",
+        "type": "fall_color",
+        "desc": "Vivid red to orange-red color comes early, before most maples",
+        "start": "09-20",
+        "end": "10-15",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Norway": {
+    "sci": "Acer platanoides",
+    "events": [
+      {
+        "name": "Yellow-green spring flowers",
+        "type": "bloom",
+        "desc": "Chartreuse-yellow flower clusters appear with the leaves — quite showy up close",
+        "start": "04-10",
+        "end": "05-01",
+        "icon": "🌸"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Clear yellow fall color",
+        "start": "10-10",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Japanese": {
+    "sci": "Acer palmatum",
+    "events": [
+      {
+        "name": "Crimson fall color",
+        "type": "fall_color",
+        "desc": "Delicate leaves turn an electric crimson-red — among the finest fall color of any tree",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      },
+      {
+        "name": "Spring red leafing",
+        "type": "foliage",
+        "desc": "Red-leaved cultivars emerge in deep burgundy-red in spring",
+        "start": "04-10",
+        "end": "04-30",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Maple-Amur": {
+    "sci": "Acer ginnala",
+    "events": [
+      {
+        "name": "Red fall color",
+        "type": "fall_color",
+        "desc": "Rich red fall color — one of the earliest maples to color up",
+        "start": "09-25",
+        "end": "10-20",
+        "icon": "🍂"
+      },
+      {
+        "name": "Red winged fruits",
+        "type": "fruit",
+        "desc": "Showy red-winged samaras are ornamental in late summer",
+        "start": "07-15",
+        "end": "09-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Maple-Paperbark": {
+    "sci": "Acer griseum",
+    "events": [
+      {
+        "name": "Cinnamon peeling bark",
+        "type": "bark",
+        "desc": "Cinnamon-orange papery bark peels in curling sheets year-round — stunning in winter light",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Red-orange fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn orange-red, pairing beautifully with the cinnamon bark",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Three Flower": {
+    "sci": "Acer triflorum",
+    "events": [
+      {
+        "name": "Exfoliating bark",
+        "type": "bark",
+        "desc": "Shaggy gray-brown bark exfoliates to reveal inner layers — best in winter",
+        "start": "11-15",
+        "end": "03-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Bold orange and red fall color",
+        "start": "10-01",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-David's": {
+    "sci": "Acer davidii",
+    "events": [
+      {
+        "name": "Striped green bark",
+        "type": "bark",
+        "desc": "Distinctive green bark with white vertical stripes — one of the 'snakebark' maples",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow-orange fall color",
+        "type": "fall_color",
+        "desc": "Bright yellow to orange fall color contrasting with the striped bark",
+        "start": "10-05",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Shantung": {
+    "sci": "Acer truncatum",
+    "events": [
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Rich orange to red fall color",
+        "start": "10-01",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Trident": {
+    "sci": "Acer buergerianum",
+    "events": [
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Reliable orange to red fall color",
+        "start": "10-10",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Hedge": {
+    "sci": "Acer campestre",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Clear yellow fall color",
+        "start": "10-10",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Silver": {
+    "sci": "Acer saccharinum",
+    "events": [
+      {
+        "name": "Early red flowers",
+        "type": "bloom",
+        "desc": "Small red flowers appear very early on bare branches",
+        "start": "03-10",
+        "end": "04-01",
+        "icon": "🌸"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Pale yellow fall color; silver leaf undersides flash in the wind all season",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Boxelder": {
+    "sci": "Acer negundo",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color",
+        "start": "10-05",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Ivyleaved": {
+    "sci": "Acer cissifolium",
+    "events": [
+      {
+        "name": "Fall color",
+        "type": "fall_color",
+        "desc": "Yellow-orange fall color on unusual ivy-shaped leaves",
+        "start": "10-10",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maple-Sycamore": {
+    "sci": "Acer pseudoplatanus",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color on large maple leaves",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Birch-River": {
+    "sci": "Betula nigra",
+    "events": [
+      {
+        "name": "Exfoliating salmon bark",
+        "type": "bark",
+        "desc": "Creamy salmon-to-tan papery bark peels in curling sheets year-round — beautiful in winter",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Bright yellow fall color with the peeling bark making a striking combination",
+        "start": "10-10",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Birch-Paper": {
+    "sci": "Betula papyrifera",
+    "events": [
+      {
+        "name": "Bright white bark",
+        "type": "bark",
+        "desc": "Gleaming white papery bark stands out year-round, especially dramatic in winter and against fall color",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Warm golden-yellow fall color set against the white bark",
+        "start": "10-10",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Birch-Gray": {
+    "sci": "Betula populifolia",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Golden yellow fall color",
+        "start": "10-10",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Tuliptree": {
+    "sci": "Liriodendron tulipifera",
+    "events": [
+      {
+        "name": "Tulip-shaped flowers",
+        "type": "bloom",
+        "desc": "Uniquely tulip-shaped flowers — green, orange, and yellow — appear in the canopy",
+        "start": "05-15",
+        "end": "06-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Golden fall color",
+        "type": "fall_color",
+        "desc": "Bright golden-yellow fall color lights up the canopy",
+        "start": "10-10",
+        "end": "10-30",
+        "icon": "🍂"
+      },
+      {
+        "name": "Persistent cone-like fruits",
+        "type": "fruit",
+        "desc": "Cone-like fruiting clusters stand upright on branches through winter",
+        "start": "10-01",
+        "end": "02-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Sweetgum-Common": {
+    "sci": "Liquidambar styraciflua",
+    "events": [
+      {
+        "name": "Multicolor fall color",
+        "type": "fall_color",
+        "desc": "Spectacular star-shaped leaves turn wine, purple, orange, red, and yellow — often all on the same tree",
+        "start": "10-10",
+        "end": "11-10",
+        "icon": "🍂"
+      },
+      {
+        "name": "Spiky ball fruits",
+        "type": "fruit",
+        "desc": "Spiky round ball fruits hang through winter",
+        "start": "10-15",
+        "end": "02-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Tupelo-Black": {
+    "sci": "Nyssa sylvatica",
+    "events": [
+      {
+        "name": "First fall color — scarlet",
+        "type": "fall_color",
+        "desc": "One of the FIRST trees on campus to color up — brilliant scarlet red, sometimes as early as mid-September",
+        "start": "09-20",
+        "end": "10-20",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Ginkgo": {
+    "sci": "Ginkgo biloba",
+    "events": [
+      {
+        "name": "Golden fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn a pure luminous gold, then drop all at once within days — the golden carpet is spectacular",
+        "start": "10-15",
+        "end": "11-01",
+        "icon": "🍂"
+      },
+      {
+        "name": "Fan-shaped spring leaves",
+        "type": "foliage",
+        "desc": "Prehistoric fan-shaped leaves unfurl in pale green",
+        "start": "04-15",
+        "end": "05-10",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Dawn Redwood": {
+    "sci": "Metasequoia glyptostroboides",
+    "events": [
+      {
+        "name": "Fresh green needle emergence",
+        "type": "foliage",
+        "desc": "Vivid bright-green feathery needles burst from bare branches — one of the most dramatic spring emergences",
+        "start": "04-15",
+        "end": "05-10",
+        "icon": "🌿"
+      },
+      {
+        "name": "Copper-orange fall color",
+        "type": "fall_color",
+        "desc": "Soft needles turn a rich copper-orange before the tree goes bare — striking contrast with the large trunk",
+        "start": "10-25",
+        "end": "11-15",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Larch-Common": {
+    "sci": "Larix decidua",
+    "events": [
+      {
+        "name": "Bright green spring needles",
+        "type": "foliage",
+        "desc": "Soft bright-green needles emerge early — one of the first conifers to leaf out in spring",
+        "start": "03-20",
+        "end": "04-25",
+        "icon": "🌿"
+      },
+      {
+        "name": "Golden fall color",
+        "type": "fall_color",
+        "desc": "Needles turn golden-yellow before dropping — unusual for a conifer",
+        "start": "10-15",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Larch": {
+    "sci": "Larix sp",
+    "events": [
+      {
+        "name": "Spring needle emergence",
+        "type": "foliage",
+        "desc": "Soft green needles emerge on a deciduous conifer",
+        "start": "03-20",
+        "end": "04-25",
+        "icon": "🌿"
+      },
+      {
+        "name": "Golden fall color",
+        "type": "fall_color",
+        "desc": "Needles turn golden yellow",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Golden Larch": {
+    "sci": "Pseudolarix amabilis",
+    "events": [
+      {
+        "name": "Soft spring needles",
+        "type": "foliage",
+        "desc": "Soft golden-green needles emerge on this beautiful rare deciduous conifer",
+        "start": "04-01",
+        "end": "05-01",
+        "icon": "🌿"
+      },
+      {
+        "name": "Brilliant golden fall color",
+        "type": "fall_color",
+        "desc": "Needles turn brilliant pure gold — one of the finest autumn displays of any conifer",
+        "start": "10-15",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Common Baldcypress": {
+    "sci": "Taxodium distichum",
+    "events": [
+      {
+        "name": "Fresh green spring needles",
+        "type": "foliage",
+        "desc": "Feathery bright-green needles emerge on this unusual deciduous conifer",
+        "start": "04-10",
+        "end": "05-05",
+        "icon": "🌿"
+      },
+      {
+        "name": "Russet-copper fall color",
+        "type": "fall_color",
+        "desc": "Needles turn soft russet to burnt copper before dropping",
+        "start": "10-20",
+        "end": "11-15",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Katsuratree": {
+    "sci": "Cercidiphyllum japonicum",
+    "events": [
+      {
+        "name": "Rosy spring leaf emergence",
+        "type": "foliage",
+        "desc": "Heart-shaped leaves emerge with a rosy-red flush before turning blue-green",
+        "start": "04-05",
+        "end": "05-05",
+        "icon": "🌿"
+      },
+      {
+        "name": "Caramel-scented fall color",
+        "type": "fragrance",
+        "desc": "UNIQUE: Fallen leaves release a warm caramel / burnt-sugar fragrance — the sweetest smell in the arboretum",
+        "start": "10-01",
+        "end": "10-30",
+        "icon": "✨"
+      },
+      {
+        "name": "Yellow-orange fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn warm yellow to apricot-orange",
+        "start": "10-01",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Yellowwood-American": {
+    "sci": "Cladrastis lutea",
+    "events": [
+      {
+        "name": "Fragrant white flower racemes",
+        "type": "bloom",
+        "desc": "Long hanging clusters of fragrant white flowers — one of the most beautiful and fragrant of all flowering trees",
+        "start": "05-20",
+        "end": "06-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Smooth gray bark",
+        "type": "bark",
+        "desc": "Smooth light-gray bark resembles beech — beautiful in winter",
+        "start": "11-15",
+        "end": "03-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Clear yellow fall color",
+        "start": "10-01",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Locust-Black": {
+    "sci": "Robinia pseudoacacia",
+    "events": [
+      {
+        "name": "Fragrant white bloom",
+        "type": "bloom",
+        "desc": "Hanging clusters of fragrant white flowers — the whole area around these trees smells of honey",
+        "start": "05-05",
+        "end": "05-25",
+        "icon": "🌸"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Small leaflets turn yellow",
+        "start": "10-05",
+        "end": "10-20",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Honeylocust-Thornless Common": {
+    "sci": "Gleditsia triacanthos",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Small leaflets turn a bright clean yellow, creating a fine-textured golden canopy",
+        "start": "10-10",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Horsechestnut-Red": {
+    "sci": "Aesculus x carnea",
+    "events": [
+      {
+        "name": "Red flower candles",
+        "type": "bloom",
+        "desc": "Upright candles of showy red-pink flowers tower above the foliage",
+        "start": "04-25",
+        "end": "05-20",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Silverbell-Carolina": {
+    "sci": "Halesia carolina",
+    "events": [
+      {
+        "name": "White bell flowers",
+        "type": "bloom",
+        "desc": "Chains of dainty white bell-shaped flowers dangle beneath the branches",
+        "start": "04-20",
+        "end": "05-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Clean yellow fall color",
+        "start": "10-10",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Styrax-Japanese Snowbell": {
+    "sci": "Styrax japonicus",
+    "events": [
+      {
+        "name": "Fragrant white bells",
+        "type": "bloom",
+        "desc": "Masses of drooping white bell-shaped fragrant flowers — stunning when viewed from below",
+        "start": "05-25",
+        "end": "06-20",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Styrax-Snowbell": {
+    "sci": "Styrax sp",
+    "events": [
+      {
+        "name": "Fragrant white bells",
+        "type": "bloom",
+        "desc": "Drooping white fragrant bell-shaped flowers",
+        "start": "05-25",
+        "end": "06-20",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Linden": {
+    "sci": "Tilia sp",
+    "events": [
+      {
+        "name": "Intensely fragrant bloom",
+        "type": "fragrance",
+        "desc": "Small cream-yellow flowers produce one of the most powerfully sweet fragrances in the arboretum — bees swarm these trees",
+        "start": "06-20",
+        "end": "07-15",
+        "icon": "✨"
+      }
+    ]
+  },
+  "Linden-Littleleaf": {
+    "sci": "Tilia cordata",
+    "events": [
+      {
+        "name": "Intensely fragrant bloom",
+        "type": "fragrance",
+        "desc": "Small cream flowers fill the air with a uniquely sweet honey-like fragrance",
+        "start": "06-25",
+        "end": "07-20",
+        "icon": "✨"
+      }
+    ]
+  },
+  "Linden-American": {
+    "sci": "Tilia americana",
+    "events": [
+      {
+        "name": "Fragrant summer bloom",
+        "type": "fragrance",
+        "desc": "Hanging clusters of cream-yellow fragrant flowers",
+        "start": "06-20",
+        "end": "07-15",
+        "icon": "✨"
+      }
+    ]
+  },
+  "Linden-Silver": {
+    "sci": "Tilia tomentosa",
+    "events": [
+      {
+        "name": "Fragrant bloom",
+        "type": "fragrance",
+        "desc": "Cream flowers with a distinctive lime-blossom fragrance",
+        "start": "06-25",
+        "end": "07-20",
+        "icon": "✨"
+      }
+    ]
+  },
+  "Cotinus-Common Smoketree": {
+    "sci": "Cotinus coggygria",
+    "events": [
+      {
+        "name": "Smoky puffball display",
+        "type": "bloom",
+        "desc": "Wispy pink-purple flower plumes create a smoke-like haze around the tree — unique",
+        "start": "06-01",
+        "end": "07-15",
+        "icon": "🌸"
+      },
+      {
+        "name": "Red-orange fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn vivid orange, red, and burgundy",
+        "start": "10-01",
+        "end": "10-20",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Mimosa": {
+    "sci": "Albizia julibrissin",
+    "events": [
+      {
+        "name": "Pink powderpuff flowers",
+        "type": "bloom",
+        "desc": "Fluffy pink powderpuff flowers create an exotic tropical display",
+        "start": "06-25",
+        "end": "08-01",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Pagodatree-Japanese": {
+    "sci": "Sophora japonica",
+    "events": [
+      {
+        "name": "Late white bloom",
+        "type": "bloom",
+        "desc": "Upright clusters of white pea-like flowers in late summer — one of the last trees to bloom",
+        "start": "07-15",
+        "end": "08-10",
+        "icon": "🌸"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color",
+        "start": "10-05",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Seven-son Flower": {
+    "sci": "Heptacodium miconioides",
+    "events": [
+      {
+        "name": "Late summer bloom + bracts",
+        "type": "bloom",
+        "desc": "White flowers followed by showy rose-red sepals that look like flowers — blooms and 'blooms twice'",
+        "start": "08-20",
+        "end": "10-01",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Stewartia-Japanese": {
+    "sci": "Stewartia pseudocamellia",
+    "events": [
+      {
+        "name": "Camellia-like flowers",
+        "type": "bloom",
+        "desc": "Large white camellia-like flowers with orange-yellow stamens — outstanding summer bloomer",
+        "start": "06-20",
+        "end": "08-01",
+        "icon": "🌸"
+      },
+      {
+        "name": "Exfoliating mosaic bark",
+        "type": "bark",
+        "desc": "Bark exfoliates in a mosaic of cream, gray, brown, and rust — one of the finest bark trees year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Red-purple fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn red to purple-red",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Stewartia": {
+    "sci": "Stewartia sp",
+    "events": [
+      {
+        "name": "White flowers",
+        "type": "bloom",
+        "desc": "White camellia-like flowers in summer",
+        "start": "06-20",
+        "end": "08-01",
+        "icon": "🌸"
+      },
+      {
+        "name": "Exfoliating bark",
+        "type": "bark",
+        "desc": "Attractive exfoliating bark reveals mosaic of colors",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      }
+    ]
+  },
+  "Enkianthus": {
+    "sci": "Enkianthus campanulatus",
+    "events": [
+      {
+        "name": "Pink bell flowers",
+        "type": "bloom",
+        "desc": "Pendulous clusters of creamy-pink striped bell-shaped flowers",
+        "start": "05-01",
+        "end": "05-25",
+        "icon": "🌸"
+      },
+      {
+        "name": "Brilliant fall color",
+        "type": "fall_color",
+        "desc": "One of the finest fall colors of any shrub/small tree — scarlet to orange to yellow",
+        "start": "10-05",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Maackia-Amur": {
+    "sci": "Maackia amurensis",
+    "events": [
+      {
+        "name": "White midsummer bloom",
+        "type": "bloom",
+        "desc": "Upright white flower racemes in midsummer",
+        "start": "07-01",
+        "end": "08-01",
+        "icon": "🌸"
+      },
+      {
+        "name": "Peeling copper-bronze bark",
+        "type": "bark",
+        "desc": "Bark peels in thin copper-bronze flakes — handsome year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      }
+    ]
+  },
+  "Hardy Rubber Tree": {
+    "sci": "Eucommia ulmoides",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Clear yellow fall color on this unusual novelty tree",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Elm-American": {
+    "sci": "Ulmus americana",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Clear yellow fall color on the classic vase-shaped American Elm",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Elm-Chinese": {
+    "sci": "Ulmus parvifolia",
+    "events": [
+      {
+        "name": "Mottled exfoliating bark",
+        "type": "bark",
+        "desc": "Bark exfoliates in irregular patches of gray, green, orange, and brown — beautiful year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow-green fall color",
+        "type": "fall_color",
+        "desc": "Late-season yellow to yellow-green fall color",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Elm-Siberian": {
+    "sci": "Ulmus pumila",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Elm-Slippery": {
+    "sci": "Ulmus rubra",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Elm-Smooth Leaved": {
+    "sci": "Ulmus minor",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Zelkova-Japanese": {
+    "sci": "Zelkova serrata",
+    "events": [
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn yellow, orange, and red — a vase-shaped tree with excellent fall color",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Beech-American": {
+    "sci": "Fagus grandifolia",
+    "events": [
+      {
+        "name": "Silky spring leaf emergence",
+        "type": "foliage",
+        "desc": "Pale green silky leaves unfurl from long pointed buds — one of the most beautiful leaf emergences of any tree",
+        "start": "04-20",
+        "end": "05-15",
+        "icon": "🌿"
+      },
+      {
+        "name": "Smooth silver bark",
+        "type": "bark",
+        "desc": "Smooth silver-gray bark is strikingly beautiful, especially in winter",
+        "start": "11-15",
+        "end": "04-01",
+        "icon": "🌳"
+      },
+      {
+        "name": "Bronze-gold fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn bronze-gold and many persist through winter on the tree",
+        "start": "10-20",
+        "end": "11-15",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Beech-European": {
+    "sci": "Fagus sylvatica",
+    "events": [
+      {
+        "name": "Silky spring leaf emergence",
+        "type": "foliage",
+        "desc": "Silky pale green leaves emerge from long winter buds",
+        "start": "04-20",
+        "end": "05-10",
+        "icon": "🌿"
+      },
+      {
+        "name": "Smooth gray bark",
+        "type": "bark",
+        "desc": "Smooth elephant-skin gray bark is beautiful year-round",
+        "start": "11-15",
+        "end": "04-01",
+        "icon": "🌳"
+      },
+      {
+        "name": "Copper-bronze fall color",
+        "type": "fall_color",
+        "desc": "Copper to bronze fall color; purple-leaved varieties turn dark bronze",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Scarlet": {
+    "sci": "Quercus coccinea",
+    "events": [
+      {
+        "name": "Brilliant scarlet fall color",
+        "type": "fall_color",
+        "desc": "One of the finest fall colors of any oak — brilliant scarlet red that rivals the maples",
+        "start": "10-15",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Pin": {
+    "sci": "Quercus palustris",
+    "events": [
+      {
+        "name": "Red-brown fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn russet-red to red-brown; many persist on the tree into winter",
+        "start": "10-20",
+        "end": "11-15",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Northern Red": {
+    "sci": "Quercus rubra",
+    "events": [
+      {
+        "name": "Red to orange-brown fall color",
+        "type": "fall_color",
+        "desc": "Reliable red to orange-brown fall color on one of campus's most common trees",
+        "start": "10-15",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-White": {
+    "sci": "Quercus alba",
+    "events": [
+      {
+        "name": "Burgundy-red fall color",
+        "type": "fall_color",
+        "desc": "Rich burgundy to wine-red fall color on the stately white oak",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Swamp White": {
+    "sci": "Quercus bicolor",
+    "events": [
+      {
+        "name": "Yellow-brown fall color",
+        "type": "fall_color",
+        "desc": "Yellow to yellow-brown fall color with attractive exfoliating bark",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      },
+      {
+        "name": "Exfoliating bark",
+        "type": "bark",
+        "desc": "Bark on upper branches peels in curling strips, revealing lighter inner bark",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      }
+    ]
+  },
+  "Oak-English": {
+    "sci": "Quercus robur",
+    "events": [
+      {
+        "name": "Yellow-brown fall color",
+        "type": "fall_color",
+        "desc": "Yellow-brown fall color",
+        "start": "10-15",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Bur": {
+    "sci": "Quercus macrocarpa",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color on massive fringed-cap acorns tree",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Black": {
+    "sci": "Quercus velutina",
+    "events": [
+      {
+        "name": "Red-brown fall color",
+        "type": "fall_color",
+        "desc": "Red to red-brown fall color",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Sawtooth": {
+    "sci": "Quercus acutissima",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow to yellow-brown fall color",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Willow": {
+    "sci": "Quercus phellos",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow to yellow-brown fall color on willow-like narrow leaves",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Chestnut": {
+    "sci": "Quercus prinus",
+    "events": [
+      {
+        "name": "Yellow-brown fall color",
+        "type": "fall_color",
+        "desc": "Yellow to yellow-brown fall color",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Chinkapin": {
+    "sci": "Quercus muehlenbergii",
+    "events": [
+      {
+        "name": "Yellow-orange fall color",
+        "type": "fall_color",
+        "desc": "Orange to yellow-orange fall color",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak-Shingle": {
+    "sci": "Quercus imbricaria",
+    "events": [
+      {
+        "name": "Yellow-red fall color",
+        "type": "fall_color",
+        "desc": "Yellow to red fall color",
+        "start": "10-20",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Oak": {
+    "sci": "Quercus sp",
+    "events": [
+      {
+        "name": "Fall color",
+        "type": "fall_color",
+        "desc": "Red to brown fall color",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Sassafras-Common": {
+    "sci": "Sassafras albidum",
+    "events": [
+      {
+        "name": "Multicolor fall display",
+        "type": "fall_color",
+        "desc": "Leaves on one tree can turn orange, red, purple, AND yellow simultaneously — outstanding multicolor fall display",
+        "start": "10-01",
+        "end": "10-25",
+        "icon": "🍂"
+      },
+      {
+        "name": "Aromatic leaves",
+        "type": "fragrance",
+        "desc": "Mitten-shaped leaves release a spicy root-beer scent when crushed",
+        "start": "05-01",
+        "end": "10-31",
+        "icon": "✨"
+      }
+    ]
+  },
+  "Persimmon-Common": {
+    "sci": "Diospyros virginiana",
+    "events": [
+      {
+        "name": "Orange fruits persist",
+        "type": "fruit",
+        "desc": "Orange fruits cling to bare branches after leaf drop — beautiful against the winter sky",
+        "start": "10-15",
+        "end": "12-15",
+        "icon": "🍎"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn yellow to orange-yellow",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Poplar-Aspen": {
+    "sci": "Populus tremuloides",
+    "events": [
+      {
+        "name": "Golden trembling fall color",
+        "type": "fall_color",
+        "desc": "Golden yellow leaves tremble and flutter in any breeze — the whispering sound is as beautiful as the color",
+        "start": "10-05",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Poplar-Eastern": {
+    "sci": "Populus deltoides",
+    "events": [
+      {
+        "name": "Golden fall color",
+        "type": "fall_color",
+        "desc": "Golden yellow fall color",
+        "start": "10-10",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Planetree-London": {
+    "sci": "Platanus x acerifolia",
+    "events": [
+      {
+        "name": "Camouflage exfoliating bark",
+        "type": "bark",
+        "desc": "Bark peels in large patches to reveal cream, olive, and tan — creating a dramatic camouflage pattern year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow-brown fall color",
+        "type": "fall_color",
+        "desc": "Yellow to yellow-brown fall color",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Sycamore-American": {
+    "sci": "Platanus occidentalis",
+    "events": [
+      {
+        "name": "Camouflage bark",
+        "type": "bark",
+        "desc": "Upper branches show striking white-cream bark from exfoliation — ghostly white in winter",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow-brown fall color",
+        "type": "fall_color",
+        "desc": "Yellow to yellow-brown fall color",
+        "start": "10-20",
+        "end": "11-10",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Hickory-Shagbark": {
+    "sci": "Carya ovata",
+    "events": [
+      {
+        "name": "Shaggy bark display",
+        "type": "bark",
+        "desc": "Long curling gray bark plates give the tree its distinctive shaggy look — dramatic year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Golden fall color",
+        "type": "fall_color",
+        "desc": "Rich golden yellow fall color — among the finest yellows of any native tree",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Hickory-Pignut": {
+    "sci": "Carya glabra",
+    "events": [
+      {
+        "name": "Golden fall color",
+        "type": "fall_color",
+        "desc": "Warm golden yellow fall color",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Walnut-Black": {
+    "sci": "Juglans nigra",
+    "events": [
+      {
+        "name": "Early yellow fall color",
+        "type": "fall_color",
+        "desc": "Leaflets turn yellow and drop early — one of the first trees to go bare in fall",
+        "start": "10-01",
+        "end": "10-20",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Hornbeam-American": {
+    "sci": "Carpinus caroliniana",
+    "events": [
+      {
+        "name": "Muscular fluted bark",
+        "type": "bark",
+        "desc": "Smooth gray bark is deeply fluted into muscle-like ridges — striking in winter",
+        "start": "11-15",
+        "end": "03-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Orange-red fall color",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      },
+      {
+        "name": "Hop-like fruits",
+        "type": "fruit",
+        "desc": "Hanging clusters of leafy hop-like fruits are ornamental",
+        "start": "09-01",
+        "end": "11-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Hornbeam-European": {
+    "sci": "Carpinus betulus",
+    "events": [
+      {
+        "name": "Muscular gray bark",
+        "type": "bark",
+        "desc": "Smooth gray muscular-looking bark is ornamental year-round",
+        "start": "11-15",
+        "end": "03-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow-orange fall color",
+        "type": "fall_color",
+        "desc": "Yellow to orange fall color, leaves may persist",
+        "start": "10-10",
+        "end": "11-05",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Hackberry": {
+    "sci": "Celtis occidentalis",
+    "events": [
+      {
+        "name": "Corky warty bark",
+        "type": "bark",
+        "desc": "Distinctively warty and corky bark with irregular ridges — very recognizable",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color",
+        "start": "10-15",
+        "end": "11-05",
+        "icon": "🍂"
+      },
+      {
+        "name": "Purple berries attract birds",
+        "type": "fruit",
+        "desc": "Small purple-black berries attract dozens of bird species during fall migration",
+        "start": "09-01",
+        "end": "11-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Hazel-Turkish Filbert": {
+    "sci": "Corylus colurna",
+    "events": [
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Clear yellow fall color",
+        "start": "10-05",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Holly-American": {
+    "sci": "Ilex opaca",
+    "events": [
+      {
+        "name": "Red berries on evergreen",
+        "type": "fruit",
+        "desc": "Brilliant red berries against glossy dark evergreen foliage — at its best in late fall and winter",
+        "start": "10-15",
+        "end": "02-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Holly-English": {
+    "sci": "Ilex aquifolium",
+    "events": [
+      {
+        "name": "Red berries on evergreen",
+        "type": "fruit",
+        "desc": "Classic Christmas-red berries against dark spiny evergreen leaves",
+        "start": "10-15",
+        "end": "02-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Mountain Ash-Korean": {
+    "sci": "Sorbus alnifolia",
+    "events": [
+      {
+        "name": "White bloom clusters",
+        "type": "bloom",
+        "desc": "Flat-topped clusters of small white flowers",
+        "start": "05-01",
+        "end": "05-25",
+        "icon": "🌸"
+      },
+      {
+        "name": "Brilliant orange-red fruits",
+        "type": "fruit",
+        "desc": "Large clusters of bright orange-red fruits are stunning and very bird-attractive",
+        "start": "09-01",
+        "end": "11-15",
+        "icon": "🍎"
+      },
+      {
+        "name": "Orange-red fall color",
+        "type": "fall_color",
+        "desc": "Orange-red fall color",
+        "start": "10-01",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Osage Orange": {
+    "sci": "Maclura pomifera",
+    "events": [
+      {
+        "name": "Giant wrinkled fruits",
+        "type": "fruit",
+        "desc": "Grapefruit-sized bumpy green fruits litter the ground in fall — nature's most remarkable fruit",
+        "start": "09-15",
+        "end": "12-01",
+        "icon": "🍎"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Mulberry-White": {
+    "sci": "Morus alba",
+    "events": [
+      {
+        "name": "Sweet berries",
+        "type": "fruit",
+        "desc": "Sweet white to pale-pink mulberries ripen — edible, and irresistible to birds",
+        "start": "06-01",
+        "end": "07-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Pawpaw-Common": {
+    "sci": "Asimina triloba",
+    "events": [
+      {
+        "name": "Large tropical-looking fruits",
+        "type": "fruit",
+        "desc": "Large oblong green fruits — the largest edible fruit native to North America, with a banana-custard flavor",
+        "start": "09-01",
+        "end": "10-10",
+        "icon": "🍎"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Clear yellow fall color on large tropical-looking leaves",
+        "start": "10-01",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Corktree-Amur": {
+    "sci": "Phellodendron amurense",
+    "events": [
+      {
+        "name": "Deeply ridged corky bark",
+        "type": "bark",
+        "desc": "Thick corky deeply-furrowed bark is very distinctive year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color",
+        "start": "10-05",
+        "end": "10-20",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Kentucky Coffeetree": {
+    "sci": "Gymnocladus dioicus",
+    "events": [
+      {
+        "name": "Bold winter silhouette",
+        "type": "bark",
+        "desc": "Stout contorted branches with rough scaly bark create a dramatic winter silhouette",
+        "start": "11-15",
+        "end": "03-31",
+        "icon": "🌳"
+      },
+      {
+        "name": "Large brown pods persist",
+        "type": "fruit",
+        "desc": "Large leathery brown seed pods hang through winter",
+        "start": "10-01",
+        "end": "02-15",
+        "icon": "🍎"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow fall color on large bipinnate leaves",
+        "start": "10-05",
+        "end": "10-25",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Chestnut-Chinese": {
+    "sci": "Castanea mollissima",
+    "events": [
+      {
+        "name": "Spiny chestnut burrs",
+        "type": "fruit",
+        "desc": "Spiny burrs open to reveal shiny brown chestnuts in early fall",
+        "start": "09-15",
+        "end": "10-20",
+        "icon": "🍎"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow-brown fall color",
+        "start": "10-10",
+        "end": "11-01",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Tree of Heaven": {
+    "sci": "Ailanthus altissima",
+    "events": [
+      {
+        "name": "Showy seed clusters",
+        "type": "fruit",
+        "desc": "Large clusters of winged seeds turn red-orange — ornamental despite the tree's weedy reputation",
+        "start": "08-15",
+        "end": "10-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Elaeagnus-Russian Olive": {
+    "sci": "Elaeagnus angustifolia",
+    "events": [
+      {
+        "name": "Silver foliage all season",
+        "type": "foliage",
+        "desc": "Silvery-gray foliage shimmers in the breeze all summer — unique color among campus trees",
+        "start": "05-01",
+        "end": "10-15",
+        "icon": "🌿"
+      },
+      {
+        "name": "Fragrant summer bloom",
+        "type": "fragrance",
+        "desc": "Tiny silver flowers produce a powerfully sweet vanilla-like fragrance",
+        "start": "06-01",
+        "end": "07-01",
+        "icon": "✨"
+      }
+    ]
+  },
+  "Japanese Cryptomeria": {
+    "sci": "Cryptomeria japonica",
+    "events": [
+      {
+        "name": "Bronze winter foliage",
+        "type": "foliage",
+        "desc": "Foliage turns reddish-bronze in winter cold — returns to green in spring",
+        "start": "11-15",
+        "end": "03-15",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Japanese Umbrella Pine": {
+    "sci": "Sciadopitys verticillata",
+    "events": [
+      {
+        "name": "Architectural form",
+        "type": "foliage",
+        "desc": "Unusual whorled glossy green needles and perfect tiered form — a botanical curiosity year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Pine-Lacebark": {
+    "sci": "Pinus bungeana",
+    "events": [
+      {
+        "name": "Mosaic flaking bark",
+        "type": "bark",
+        "desc": "Bark exfoliates in patches to reveal a mosaic of cream, green, gray, and brown — one of the most ornamental barks of any pine",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      }
+    ]
+  },
+  "Falsecypress-Hinoki": {
+    "sci": "Chamaecyparis obtusa",
+    "events": [
+      {
+        "name": "Fan-like foliage",
+        "type": "foliage",
+        "desc": "Elegant fan-shaped dark-green fronds with white markings underneath — beautiful all year",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Ash-Green": {
+    "sci": "Fraxinus pennsylvanica",
+    "events": [
+      {
+        "name": "Purple fall color",
+        "type": "fall_color",
+        "desc": "Leaves turn yellow to purple — unusual for an ash",
+        "start": "10-05",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Willow": {
+    "sci": "Salix sp",
+    "events": [
+      {
+        "name": "Early spring green",
+        "type": "foliage",
+        "desc": "One of the first trees to leaf out in spring — a welcome sight",
+        "start": "03-20",
+        "end": "04-20",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Ehretia": {
+    "sci": "Ehretia sp",
+    "events": [
+      {
+        "name": "White bloom clusters",
+        "type": "bloom",
+        "desc": "Flat-topped clusters of small white fragrant flowers",
+        "start": "06-01",
+        "end": "07-01",
+        "icon": "🌸"
+      }
+    ]
+  },
+  "Viburnum": {
+    "sci": "Viburnum sp",
+    "events": [
+      {
+        "name": "White flower clusters",
+        "type": "bloom",
+        "desc": "Flat or domed clusters of white flowers",
+        "start": "05-01",
+        "end": "05-25",
+        "icon": "🌸"
+      },
+      {
+        "name": "Colorful fruits",
+        "type": "fruit",
+        "desc": "Berries change from green to yellow to red to blue-black — multiple colors at once",
+        "start": "08-15",
+        "end": "10-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Alder-Speckled": {
+    "sci": "Alnus rugosa",
+    "events": [
+      {
+        "name": "Early catkins",
+        "type": "bloom",
+        "desc": "Dangling yellow-brown catkins open before leaves in very early spring",
+        "start": "03-01",
+        "end": "04-01",
+        "icon": "🌸"
+      },
+      {
+        "name": "Yellow fall color",
+        "type": "fall_color",
+        "desc": "Yellow to yellow-green fall color",
+        "start": "10-10",
+        "end": "10-30",
+        "icon": "🍂"
+      }
+    ]
+  },
+  "Asiatic Sweetleaf": {
+    "sci": "Symplocos paniculata",
+    "events": [
+      {
+        "name": "White bloom clusters",
+        "type": "bloom",
+        "desc": "Dense clusters of small white fragrant flowers",
+        "start": "05-01",
+        "end": "05-25",
+        "icon": "🌸"
+      },
+      {
+        "name": "Brilliant blue fruits",
+        "type": "fruit",
+        "desc": "Turquoise-blue fruits are among the most unusually colored fruits of any hardy tree",
+        "start": "09-01",
+        "end": "10-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Cedar-Atlas": {
+    "sci": "Cedrus atlantica",
+    "events": [
+      {
+        "name": "Blue-gray foliage",
+        "type": "foliage",
+        "desc": "Blue-gray foliage is striking year-round, especially the blue-needled forms",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Cedar-Deodar": {
+    "sci": "Cedrus deodara",
+    "events": [
+      {
+        "name": "Graceful weeping form",
+        "type": "foliage",
+        "desc": "Elegant drooping branch tips and soft blue-green foliage create a graceful silhouette year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Pine-Eastern White": {
+    "sci": "Pinus strobus",
+    "events": [
+      {
+        "name": "Spring candles",
+        "type": "foliage",
+        "desc": "New growth 'candles' of bright soft green emerge in late spring — fresh and vivid before hardening",
+        "start": "05-01",
+        "end": "06-01",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Spruce-Norway": {
+    "sci": "Picea abies",
+    "events": [
+      {
+        "name": "Hanging cones",
+        "type": "fruit",
+        "desc": "Long pendant cones up to 6\" hang like Christmas ornaments from the branch tips in fall",
+        "start": "09-15",
+        "end": "12-01",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Spruce-Colorado Blue": {
+    "sci": "Picea pungens",
+    "events": [
+      {
+        "name": "Intense blue foliage",
+        "type": "foliage",
+        "desc": "The most striking blue foliage of any conifer — the steel-blue color is vivid year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Hemlock-Canadian": {
+    "sci": "Tsuga canadensis",
+    "events": [
+      {
+        "name": "Elegant drooping tips",
+        "type": "foliage",
+        "desc": "Graceful nodding branch tips with fine dark-green foliage create a soft elegant form year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Juniper-Eastern Redcedar": {
+    "sci": "Juniperus virginiana",
+    "events": [
+      {
+        "name": "Blue-gray berries",
+        "type": "fruit",
+        "desc": "Blue-gray waxy berry-like cones ripen in fall — a critical food for Cedar Waxwings during migration",
+        "start": "09-15",
+        "end": "12-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Yew-English": {
+    "sci": "Taxus baccata",
+    "events": [
+      {
+        "name": "Scarlet berries (toxic)",
+        "type": "fruit",
+        "desc": "Bright scarlet fleshy berries contrast dramatically against dark evergreen foliage — NOTE: toxic to humans",
+        "start": "08-15",
+        "end": "11-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Yew-Japanese": {
+    "sci": "Taxus cuspidata",
+    "events": [
+      {
+        "name": "Scarlet berries (toxic)",
+        "type": "fruit",
+        "desc": "Bright red fleshy berries on dark evergreen foliage — NOTE: toxic to humans",
+        "start": "08-15",
+        "end": "11-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Douglas Fir": {
+    "sci": "Pseudotsuga menziesii",
+    "events": [
+      {
+        "name": "Spring candles",
+        "type": "foliage",
+        "desc": "New growth emerges as vivid bright-green soft tufts at branch tips",
+        "start": "04-20",
+        "end": "05-25",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Fir-White": {
+    "sci": "Abies concolor",
+    "events": [
+      {
+        "name": "Blue-green new growth",
+        "type": "foliage",
+        "desc": "Fresh blue-green new growth brightens the tips of every branch in spring",
+        "start": "04-20",
+        "end": "05-25",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Fir-Balsam": {
+    "sci": "Abies balsamea",
+    "events": [
+      {
+        "name": "Upright purple cones",
+        "type": "fruit",
+        "desc": "Upright purple-blue cones stand like candles on the upper branches in summer",
+        "start": "06-15",
+        "end": "09-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Fir-Fraser": {
+    "sci": "Abies fraseri",
+    "events": [
+      {
+        "name": "Upright cones",
+        "type": "fruit",
+        "desc": "Distinctive upright cones with protruding bracts stand on the upper branches",
+        "start": "06-15",
+        "end": "09-15",
+        "icon": "🍎"
+      }
+    ]
+  },
+  "Pine-Scotch": {
+    "sci": "Pinus sylvestris",
+    "events": [
+      {
+        "name": "Orange-red bark on upper trunk",
+        "type": "bark",
+        "desc": "Upper trunk and large branches display distinctive orange-red plated bark — beautiful year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌳"
+      }
+    ]
+  },
+  "Pine-Japanese White": {
+    "sci": "Pinus parviflora",
+    "events": [
+      {
+        "name": "Architectural form",
+        "type": "foliage",
+        "desc": "Blue-green needles in distinctive bundles of 5 and elegant tiered form create a refined appearance year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌿"
+      }
+    ]
+  },
+  "Falsecypress-Sawara Cypress": {
+    "sci": "Chamaecyparis pisifera",
+    "events": [
+      {
+        "name": "Fine textured foliage",
+        "type": "foliage",
+        "desc": "Soft feathery green or gold foliage creates a delicate texture year-round",
+        "start": "01-01",
+        "end": "12-31",
+        "icon": "🌿"
+      }
+    ]
+  }
+}

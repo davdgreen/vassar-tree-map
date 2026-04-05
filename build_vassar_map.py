@@ -4,6 +4,9 @@ from collections import Counter
 # Read enriched data
 enriched = json.load(open('vassar_enriched.json'))
 
+# Read seasonal data
+seasonal = json.load(open('vassar_seasonal.json'))
+
 # Read tree data
 trees = []
 with open('vassar_arboretum.csv') as f:
@@ -11,17 +14,19 @@ with open('vassar_arboretum.csv') as f:
         bid = row['bartlett_id']
         extra = enriched.get(bid, {})
         genus = row['genus'].strip()
+        name = row['common_name']
+        sp_seasonal = seasonal.get(name, {})
         trees.append({
             'id': int(row['internal_id']),
             'bid': bid,
-            'name': row['common_name'],
+            'name': name,
             'genus': genus,
             'sci': extra.get('sci', ''),
             'age': extra.get('age', ''),
             'cond': extra.get('cond', ''),
             'lat': float(row['latitude']),
             'lng': float(row['longitude']),
-            'color': '#' + row['color_code']
+            'color': '#' + row['color_code'],
         })
 
 # Build filter option lists (sorted, with counts)
@@ -51,6 +56,17 @@ cond_opts_html  = opts_html(cond_opts,  'Any condition')
 
 trees_json = json.dumps(trees, separators=(',', ':'))
 
+# Seasonal lookup keyed by common_name: name -> list of events
+# Only include fields needed by JS (drop 'sci' since trees already have it)
+seasonal_js = {
+    name: [
+        {k: v for k, v in ev.items()}
+        for ev in data['events']
+    ]
+    for name, data in seasonal.items()
+}
+seasonal_json = json.dumps(seasonal_js, separators=(',', ':'))
+
 html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +75,8 @@ html = f"""<!DOCTYPE html>
 <title>Vassar Arboretum</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css"/>
+<script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.min.js"></script>
 <style>
 * {{ box-sizing: border-box; margin: 0; padding: 0; }}
 html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-serif; }}
@@ -71,7 +89,7 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
   top: 12px; left: 50%;
   transform: translateX(-50%);
   z-index: 1000;
-  width: min(440px, calc(100vw - 24px));
+  width: min(460px, calc(100vw - 24px));
 }}
 
 #search-wrap {{
@@ -136,6 +154,27 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
   margin-left: 2px;
 }}
 
+/* Season toggle button */
+#season-toggle {{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: none;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 13px;
+  color: #555;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: border-color 0.15s, color 0.15s;
+}}
+#season-toggle.active {{
+  border-color: #e65100;
+  color: #e65100;
+  background: rgba(230,81,0,0.07);
+}}
+
 /* Filter panel */
 #filter-panel {{
   display: none;
@@ -195,6 +234,137 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
   display: none;
 }}
 
+/* Season panel */
+#season-panel {{
+  display: none;
+  margin-top: 8px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  padding: 14px;
+  flex-direction: column;
+  gap: 12px;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
+}}
+#season-panel.open {{ display: flex; }}
+
+.season-date-row {{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}}
+.season-date-row label {{
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}}
+#season-date {{
+  flex: 1;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+  color: #222;
+  outline: none;
+}}
+#season-date:focus {{ border-color: #e65100; }}
+
+.season-actions {{
+  display: flex;
+  gap: 8px;
+}}
+
+.season-btn {{
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}}
+#show-all-season {{
+  background: #e65100;
+  color: white;
+}}
+#show-all-season:hover {{ background: #bf360c; }}
+#walk-route-btn {{
+  background: #1565c0;
+  color: white;
+}}
+#walk-route-btn:hover {{ background: #0d47a1; }}
+#clear-route-btn {{
+  display: none;
+  background: #666;
+  color: white;
+}}
+#clear-route-btn:hover {{ background: #444; }}
+
+.season-group {{
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}}
+.season-group-header {{
+  font-size: 11px;
+  font-weight: 700;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 0 2px;
+  border-bottom: 1px solid #eee;
+}}
+.season-species-row {{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.1s;
+}}
+.season-species-row:hover {{ background: #f5f5f5; }}
+.season-species-row.active {{
+  background: rgba(230,81,0,0.1);
+  outline: 1.5px solid rgba(230,81,0,0.3);
+}}
+.season-species-name {{
+  font-size: 14px;
+  font-weight: 500;
+  color: #111;
+}}
+.season-species-sub {{
+  font-size: 11px;
+  color: #888;
+  margin-top: 1px;
+}}
+.season-species-count {{
+  font-size: 12px;
+  color: #888;
+  white-space: nowrap;
+  padding-left: 8px;
+}}
+.season-empty {{
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+  padding: 16px 0;
+}}
+
+.route-info {{
+  font-size: 13px;
+  color: #555;
+  background: rgba(21,101,192,0.08);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: none;
+}}
+
 /* Status bar */
 #status {{
   margin-top: 6px;
@@ -213,6 +383,7 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
 .pp-sci  {{ font-size: 13px; font-style: italic; color: #444; margin-bottom: 6px; }}
 .pp-row  {{ font-size: 12px; color: #333; margin-top: 3px; }}
 .pp-lbl  {{ color: #666; }}
+.pp-season {{ font-size: 12px; color: #e65100; margin-top: 6px; padding-top: 6px; border-top: 1px solid #eee; }}
 
 /* Location button */
 #locate-btn {{
@@ -227,6 +398,13 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
   font-size: 22px;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
+}}
+
+/* Pulsing season marker */
+@keyframes pulse {{
+  0%   {{ box-shadow: 0 0 0 0 rgba(230,81,0,0.5); }}
+  70%  {{ box-shadow: 0 0 0 8px rgba(230,81,0,0); }}
+  100% {{ box-shadow: 0 0 0 0 rgba(230,81,0,0); }}
 }}
 </style>
 </head>
@@ -244,6 +422,7 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
     <button id="filter-toggle" onclick="toggleFilters()">
       ⚙ Browse <span id="filter-badge"></span>
     </button>
+    <button id="season-toggle" onclick="toggleSeason()">🌸 In Season</button>
   </div>
 
   <!-- Filter panel -->
@@ -282,6 +461,21 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
     <button id="filter-clear" onclick="clearFilters()">✕ Clear filters</button>
   </div>
 
+  <!-- Season panel -->
+  <div id="season-panel">
+    <div class="season-date-row">
+      <label>Date</label>
+      <input type="date" id="season-date" onchange="renderSeasonPanel()">
+    </div>
+    <div class="season-actions">
+      <button class="season-btn" id="show-all-season" onclick="showAllInSeason()">Show All on Map</button>
+      <button class="season-btn" id="walk-route-btn" onclick="buildWalkRoute()">🚶 Walk Route</button>
+      <button class="season-btn" id="clear-route-btn" onclick="clearRoute()">✕ Route</button>
+    </div>
+    <div class="route-info" id="route-info"></div>
+    <div id="season-list"></div>
+  </div>
+
   <div id="status"></div>
 </div>
 
@@ -289,6 +483,17 @@ html, body {{ height: 100%; overflow: hidden; font-family: -apple-system, sans-s
 
 <script>
 const TREES = {trees_json};
+const SEASONAL = {seasonal_json};
+
+// ── Event type styling ──
+const TYPE_COLOR = {{
+  bloom:      '#e91e8c',
+  fall_color: '#e65100',
+  bark:       '#795548',
+  fruit:      '#2e7d32',
+  foliage:    '#388e3c',
+  fragrance:  '#7b1fa2',
+}};
 
 // Map
 const map = L.map('map', {{ center: [41.6873, -73.8966], zoom: 16, zoomControl: true }});
@@ -298,30 +503,100 @@ L.tileLayer('https://{{s}}.tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{
 
 const layer = L.layerGroup().addTo(map);
 
+// Build allMarkers
 const allMarkers = TREES.map(t => {{
   const m = L.circleMarker([t.lat, t.lng], {{
     radius: 5, color: t.color, fillColor: t.color,
     fillOpacity: 0.75, weight: 1.2, opacity: 0.9
   }});
+
   const ageRow  = t.age  ? `<div class="pp-row"><span class="pp-lbl">Age Class:</span> ${{t.age}}</div>`  : '';
   const condRow = t.cond ? `<div class="pp-row"><span class="pp-lbl">Condition Class:</span> ${{t.cond}}</div>` : '';
+
+  // Active events for today (shown in popup)
+  const todayMD = todayMMDD();
+  const activeEvs = (SEASONAL[t.name] || []).filter(ev => dateInRange(todayMD, ev.start, ev.end));
+  const seasonRow = activeEvs.length
+    ? `<div class="pp-season">${{activeEvs.map(e => `${{e.icon}} ${{e.name}}`).join('<br>')}}</div>`
+    : '';
+
   m.bindPopup(
     `<div class="pp-id">Tree ID: ${{t.id}}</div>` +
     `<div class="pp-name">${{t.name}}</div>` +
     `<div class="pp-sci">${{t.sci || t.genus}}</div>` +
-    ageRow + condRow,
-    {{ maxWidth: 240 }}
+    ageRow + condRow + seasonRow,
+    {{ maxWidth: 260 }}
   );
   m._treeData = t;
   return m;
 }});
 
+// ── Date helpers ──
+function todayMMDD() {{
+  const d = new Date();
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  return `${{mm}}-${{dd}}`;
+}}
+
+function dateInRange(mmdd, start, end) {{
+  // All strings in MM-DD format. Handle year-wrap (e.g., "11-15" to "02-28").
+  if (start <= end) {{
+    return mmdd >= start && mmdd <= end;
+  }} else {{
+    // wraps new year
+    return mmdd >= start || mmdd <= end;
+  }}
+}}
+
+function getExcitingTrees(mmdd) {{
+  // Returns array of {{tree, marker, events[]}} for trees with active events on mmdd
+  const result = [];
+  allMarkers.forEach(m => {{
+    const t = m._treeData;
+    const active = (SEASONAL[t.name] || []).filter(ev => dateInRange(mmdd, ev.start, ev.end));
+    if (active.length) result.push({{ tree: t, marker: m, events: active }});
+  }});
+  return result;
+}}
+
 // ── Filter panel toggle ──
+let seasonOpen = false;
+
 function toggleFilters() {{
   const panel = document.getElementById('filter-panel');
   const btn   = document.getElementById('filter-toggle');
+  // Close season panel if open
+  if (seasonOpen) toggleSeason();
   panel.classList.toggle('open');
   btn.classList.toggle('active');
+}}
+
+// ── Season panel toggle ──
+function toggleSeason() {{
+  const panel = document.getElementById('season-panel');
+  const btn   = document.getElementById('season-toggle');
+  // Close filter panel if open
+  document.getElementById('filter-panel').classList.remove('open');
+  document.getElementById('filter-toggle').classList.remove('active');
+
+  seasonOpen = !seasonOpen;
+  panel.classList.toggle('open', seasonOpen);
+  btn.classList.toggle('active', seasonOpen);
+
+  if (seasonOpen) {{
+    // Set date to today if not set
+    const inp = document.getElementById('season-date');
+    if (!inp.value) {{
+      const d = new Date();
+      inp.value = d.toISOString().slice(0,10);
+    }}
+    renderSeasonPanel();
+  }} else {{
+    // Restore all markers when closing season panel
+    showAll();
+    clearRoute();
+  }}
 }}
 
 // ── Core filter logic ──
@@ -333,22 +608,22 @@ function onSearch() {{
 }}
 
 function applyFilters() {{
+  // Close season panel
+  if (seasonOpen) toggleSeason();
+
   const q     = document.getElementById('search').value.trim().toLowerCase();
   const fName = document.getElementById('f-name').value;
   const fGenus= document.getElementById('f-genus').value;
   const fAge  = document.getElementById('f-age').value;
   const fCond = document.getElementById('f-cond').value;
 
-  // Show/hide clear button for text search
   document.getElementById('clear-btn').style.display = q ? 'block' : 'none';
 
-  // Style dropdowns that are set
   ['f-name','f-genus','f-age','f-cond'].forEach(id => {{
     const el = document.getElementById(id);
     el.classList.toggle('set', !!el.value);
   }});
 
-  // Count active filters (excluding text search)
   const activeCount = [fName, fGenus, fAge, fCond].filter(Boolean).length;
   const badge = document.getElementById('filter-badge');
   if (activeCount > 0) {{
@@ -364,7 +639,6 @@ function applyFilters() {{
     }}
   }}
 
-  // Nothing active — show all
   if (!q && !fName && !fGenus && !fAge && !fCond) {{
     showAll(); return;
   }}
@@ -388,7 +662,6 @@ function applyFilters() {{
     layer.addLayer(m);
   }});
 
-  // Fly to fit
   const lats = matched.map(m => m._treeData.lat);
   const lngs = matched.map(m => m._treeData.lng);
   map.fitBounds(
@@ -406,7 +679,7 @@ function applyFilters() {{
 function showAll() {{
   layer.clearLayers();
   allMarkers.forEach(m => {{
-    m.setStyle({{ radius: 5, fillOpacity: 0.75, opacity: 0.9 }});
+    m.setStyle({{ radius: 5, fillOpacity: 0.75, opacity: 0.9, color: m._treeData.color, fillColor: m._treeData.color }});
     layer.addLayer(m);
   }});
   setStatus('');
@@ -435,12 +708,291 @@ function setStatus(msg) {{
   else {{ el.style.display = 'none'; }}
 }}
 
+// ── Season panel ──────────────────────────────────────────────────────────────
+
+let activeSeasonRows = new Set(); // species names currently highlighted on map
+let seasonActiveAll = false;
+
+function getSelectedMMDD() {{
+  const val = document.getElementById('season-date').value; // YYYY-MM-DD
+  return val ? val.slice(5) : todayMMDD(); // MM-DD
+}}
+
+function renderSeasonPanel() {{
+  const mmdd = getSelectedMMDD();
+  const hits = getExcitingTrees(mmdd);
+
+  // Group by event type
+  const groups = {{}};
+  const typeLabel = {{
+    bloom:      '🌸 Blooming',
+    fall_color: '🍂 Fall Color',
+    foliage:    '🌿 Foliage Interest',
+    fruit:      '🍎 Fruit Display',
+    bark:       '🌳 Bark & Form',
+    fragrance:  '✨ Fragrance',
+  }};
+  const typeOrder = ['bloom','fall_color','foliage','fruit','fragrance','bark'];
+
+  hits.forEach(({{tree, events}}) => {{
+    events.forEach(ev => {{
+      if (!groups[ev.type]) groups[ev.type] = {{}};
+      const key = tree.name;
+      if (!groups[ev.type][key]) {{
+        groups[ev.type][key] = {{ name: tree.name, ev, count: 0 }};
+      }}
+      groups[ev.type][key].count++;
+    }});
+  }});
+
+  const list = document.getElementById('season-list');
+  list.innerHTML = '';
+
+  let totalSpecies = 0;
+  typeOrder.forEach(type => {{
+    if (!groups[type]) return;
+    const entries = Object.values(groups[type]).sort((a,b) => b.count - a.count);
+    totalSpecies += entries.length;
+
+    const grp = document.createElement('div');
+    grp.className = 'season-group';
+
+    const hdr = document.createElement('div');
+    hdr.className = 'season-group-header';
+    hdr.textContent = typeLabel[type] || type;
+    grp.appendChild(hdr);
+
+    entries.forEach(entry => {{
+      const row = document.createElement('div');
+      row.className = 'season-species-row' + (activeSeasonRows.has(entry.name) ? ' active' : '');
+      row.dataset.species = entry.name;
+      row.innerHTML = `
+        <div>
+          <div class="season-species-name">${{entry.ev.icon}} ${{entry.name}}</div>
+          <div class="season-species-sub">${{entry.ev.name}}</div>
+        </div>
+        <div class="season-species-count">${{entry.count}} tree${{entry.count!==1?'s':''}}</div>
+      `;
+      row.addEventListener('click', () => toggleSeasonSpecies(entry.name, type, row));
+      grp.appendChild(row);
+    }});
+
+    list.appendChild(grp);
+  }});
+
+  if (totalSpecies === 0) {{
+    list.innerHTML = '<div class="season-empty">No highlighted trees for this date.<br>Try a different date.</div>';
+  }} else {{
+    setStatus(`${{totalSpecies}} species with exciting moments today`);
+  }}
+
+  // Update map if "show all" is active
+  if (seasonActiveAll) showAllInSeason();
+}}
+
+function toggleSeasonSpecies(speciesName, eventType, rowEl) {{
+  if (activeSeasonRows.has(speciesName)) {{
+    activeSeasonRows.delete(speciesName);
+    rowEl.classList.remove('active');
+  }} else {{
+    activeSeasonRows.add(speciesName);
+    rowEl.classList.add('active');
+  }}
+  seasonActiveAll = false;
+
+  if (activeSeasonRows.size === 0) {{
+    showAll();
+    return;
+  }}
+
+  // Highlight selected species, dim others
+  const mmdd = getSelectedMMDD();
+  layer.clearLayers();
+  const highlighted = [];
+
+  allMarkers.forEach(m => {{
+    const t = m._treeData;
+    if (activeSeasonRows.has(t.name)) {{
+      const evColor = (SEASONAL[t.name] || []).find(ev =>
+        ev.type === eventType && dateInRange(mmdd, ev.start, ev.end)
+      );
+      const col = evColor ? (TYPE_COLOR[evColor.type] || t.color) : t.color;
+      m.setStyle({{ radius: 9, fillColor: col, color: col, fillOpacity: 0.95, opacity: 1, weight: 2 }});
+      layer.addLayer(m);
+      highlighted.push(m);
+    }} else {{
+      m.setStyle({{ radius: 4, fillColor: '#ccc', color: '#aaa', fillOpacity: 0.4, opacity: 0.4, weight: 1 }});
+      layer.addLayer(m);
+    }}
+  }});
+
+  if (highlighted.length) {{
+    const lats = highlighted.map(m => m._treeData.lat);
+    const lngs = highlighted.map(m => m._treeData.lng);
+    map.fitBounds(
+      L.latLngBounds([Math.min(...lats), Math.min(...lngs)], [Math.max(...lats), Math.max(...lngs)]),
+      {{ padding: [60, 60], maxZoom: 18 }}
+    );
+  }}
+}}
+
+function showAllInSeason() {{
+  seasonActiveAll = true;
+  activeSeasonRows.clear();
+  // Update row styling
+  document.querySelectorAll('.season-species-row').forEach(r => r.classList.remove('active'));
+
+  const mmdd = getSelectedMMDD();
+  const exciting = new Set(getExcitingTrees(mmdd).map(h => h.tree.name));
+
+  layer.clearLayers();
+  const highlighted = [];
+
+  allMarkers.forEach(m => {{
+    const t = m._treeData;
+    if (exciting.has(t.name)) {{
+      // Color by first active event type
+      const activeEvs = (SEASONAL[t.name] || []).filter(ev => dateInRange(mmdd, ev.start, ev.end));
+      const col = activeEvs.length ? (TYPE_COLOR[activeEvs[0].type] || t.color) : t.color;
+      m.setStyle({{ radius: 8, fillColor: col, color: col, fillOpacity: 0.9, opacity: 1, weight: 2 }});
+      layer.addLayer(m);
+      highlighted.push(m);
+    }} else {{
+      m.setStyle({{ radius: 3, fillColor: '#ccc', color: '#aaa', fillOpacity: 0.3, opacity: 0.3, weight: 1 }});
+      layer.addLayer(m);
+    }}
+  }});
+
+  if (highlighted.length) {{
+    const lats = highlighted.map(m => m._treeData.lat);
+    const lngs = highlighted.map(m => m._treeData.lng);
+    map.fitBounds(
+      L.latLngBounds([Math.min(...lats), Math.min(...lngs)], [Math.max(...lats), Math.max(...lngs)]),
+      {{ padding: [60, 60], maxZoom: 19 }}
+    );
+  }}
+
+  setStatus(`${{highlighted.length}} trees with exciting moments`);
+}}
+
+// ── Walking route ─────────────────────────────────────────────────────────────
+
+let routingControl = null;
+
+const MAIN_GATE = [41.6866, -73.8955]; // Raymond Ave main entrance
+
+function nearestNeighbor(points, start) {{
+  // Greedy TSP: always go to the closest unvisited point
+  const remaining = [...points];
+  const path = [];
+  let cur = start;
+  while (remaining.length > 0) {{
+    let best = -1, bestDist = Infinity;
+    remaining.forEach((p, i) => {{
+      const d = Math.pow(p[0]-cur[0],2) + Math.pow(p[1]-cur[1],2);
+      if (d < bestDist) {{ bestDist = d; best = i; }}
+    }});
+    path.push(remaining[best]);
+    cur = remaining[best];
+    remaining.splice(best, 1);
+  }}
+  return path;
+}}
+
+function buildWalkRoute() {{
+  clearRoute();
+
+  const mmdd = getSelectedMMDD();
+  let excitingMarkers = getExcitingTrees(mmdd).map(h => h.marker);
+
+  // Filter to only the species currently highlighted if any
+  if (activeSeasonRows.size > 0) {{
+    excitingMarkers = excitingMarkers.filter(m => activeSeasonRows.has(m._treeData.name));
+  }}
+
+  if (excitingMarkers.length === 0) {{
+    document.getElementById('route-info').style.display = 'block';
+    document.getElementById('route-info').textContent = 'No exciting trees to route to. Show trees first.';
+    return;
+  }}
+
+  // Deduplicate to one representative per species (closest to center)
+  const seenSpecies = {{}};
+  excitingMarkers.forEach(m => {{
+    const name = m._treeData.name;
+    if (!seenSpecies[name]) seenSpecies[name] = m;
+  }});
+  let waypoints = Object.values(seenSpecies).map(m => [m._treeData.lat, m._treeData.lng]);
+
+  // Determine start point: user GPS if available, else Main Gate
+  const startPt = window._userLoc || MAIN_GATE;
+
+  // Cap at 15 waypoints — pick closest to start
+  if (waypoints.length > 15) {{
+    waypoints = waypoints
+      .map(p => ({{ p, d: Math.pow(p[0]-startPt[0],2)+Math.pow(p[1]-startPt[1],2) }}))
+      .sort((a,b) => a.d - b.d)
+      .slice(0, 15)
+      .map(x => x.p);
+  }}
+
+  // Order waypoints with nearest-neighbor heuristic
+  const ordered = nearestNeighbor(waypoints, startPt);
+  const allWaypoints = [startPt, ...ordered];
+
+  const lrWaypoints = allWaypoints.map(p => L.latLng(p[0], p[1]));
+
+  routingControl = L.Routing.control({{
+    waypoints: lrWaypoints,
+    router: L.Routing.osrmv1({{
+      serviceUrl: 'https://router.project-osrm.org/route/v1',
+      profile: 'foot',
+    }}),
+    lineOptions: {{
+      styles: [{{ color: '#1565c0', weight: 4, opacity: 0.8 }}],
+      extendToWaypoints: false,
+      missingRouteTolerance: 0,
+    }},
+    addWaypoints: false,
+    draggableWaypoints: false,
+    fitSelectedRoutes: true,
+    show: false, // hide the routing panel
+    createMarker: () => null, // suppress default markers
+  }}).addTo(map);
+
+  routingControl.on('routesfound', e => {{
+    const route = e.routes[0];
+    const dist = (route.summary.totalDistance / 1000).toFixed(2);
+    const mins = Math.round(route.summary.totalTime / 60);
+    const info = document.getElementById('route-info');
+    info.style.display = 'block';
+    info.textContent = `🚶 ${{dist}} km · ~${{mins}} min walk · ${{ordered.length}} stop${{ordered.length!==1?'s':''}}`;
+    document.getElementById('clear-route-btn').style.display = 'block';
+  }});
+
+  routingControl.on('routingerror', () => {{
+    const info = document.getElementById('route-info');
+    info.style.display = 'block';
+    info.textContent = 'Could not compute route — check your internet connection.';
+  }});
+}}
+
+function clearRoute() {{
+  if (routingControl) {{
+    map.removeControl(routingControl);
+    routingControl = null;
+  }}
+  document.getElementById('route-info').style.display = 'none';
+  document.getElementById('clear-route-btn').style.display = 'none';
+}}
+
 // Geolocation
 let locMarker = null;
 function locateMe() {{
   if (!navigator.geolocation) {{ alert('Geolocation not supported'); return; }}
   navigator.geolocation.getCurrentPosition(pos => {{
     const ll = [pos.coords.latitude, pos.coords.longitude];
+    window._userLoc = ll;
     if (locMarker) map.removeLayer(locMarker);
     locMarker = L.circleMarker(ll, {{
       radius: 8, color: '#1565c0', fillColor: '#1e88e5',
@@ -459,4 +1011,8 @@ showAll();
 with open('vassar-tree-map.html', 'w') as f:
     f.write(html)
 
-print(f"Done. {len(trees)} trees. Output: vassar-tree-map.html ({len(html)//1024} KB)")
+with open('index.html', 'w') as f:
+    f.write(html)
+
+print(f"Done. {len(trees)} trees, {len(seasonal)} species with seasonal data.")
+print(f"Output: vassar-tree-map.html ({len(html)//1024} KB)")
