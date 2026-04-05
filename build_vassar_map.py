@@ -995,18 +995,26 @@ function buildWalkRoute() {{
     return;
   }}
 
-  // Deduplicate to one representative per species (closest to center)
-  const seenSpecies = {{}};
-  excitingMarkers.forEach(m => {{
-    const name = m._treeData.name;
-    if (!seenSpecies[name]) seenSpecies[name] = m;
-  }});
-  let waypoints = Object.values(seenSpecies).map(m => [m._treeData.lat, m._treeData.lng]);
-
   // Determine start point: user GPS if available, else Main Gate
   const startPt = window._userLoc || MAIN_GATE;
 
-  // Cap at 15 waypoints — pick closest to start
+  // Build waypoint list:
+  // - Specific species selected → visit individual trees (user wants to see all of them)
+  // - "Show All" mode → one representative per species (diverse campus tour)
+  let waypoints;
+  if (activeSeasonRows.size > 0) {{
+    // Individual trees for the selected species, capped at 15 closest to start
+    waypoints = excitingMarkers.map(m => [m._treeData.lat, m._treeData.lng]);
+  }} else {{
+    // One rep per species for the "all in season" tour
+    const seenSpecies = {{}};
+    excitingMarkers.forEach(m => {{
+      if (!seenSpecies[m._treeData.name]) seenSpecies[m._treeData.name] = m;
+    }});
+    waypoints = Object.values(seenSpecies).map(m => [m._treeData.lat, m._treeData.lng]);
+  }}
+
+  // Cap at 15 — pick closest to start
   if (waypoints.length > 15) {{
     waypoints = waypoints
       .map(p => ({{ p, d: Math.pow(p[0]-startPt[0],2)+Math.pow(p[1]-startPt[1],2) }}))
