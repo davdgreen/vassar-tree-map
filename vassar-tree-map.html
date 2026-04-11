@@ -228,8 +228,8 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, sans-se
   transition: background 0.1s, color 0.1s;
 }
 .panel-hdr-btn:hover { background: #f0f0f0; color: #333; }
-#exit-season-btn { color: #e53935; }
-#exit-season-btn:hover { background: rgba(229,57,53,0.1); color: #e53935; }
+#reset-season-btn { color: #e53935; font-size: 11px; font-weight: 600; letter-spacing: 0.3px; }
+#reset-season-btn:hover { background: rgba(229,57,53,0.1); color: #e53935; }
 
 .season-date-row {
   display: flex;
@@ -300,7 +300,12 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, sans-se
   letter-spacing: 0.5px;
   padding: 4px 0 2px;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.1s;
 }
+.season-group-header:hover { color: #555; }
+.season-group-header.active { color: #e65100; border-bottom-color: rgba(230,81,0,0.3); }
 .season-species-row {
   display: flex;
   align-items: center;
@@ -707,8 +712,8 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, sans-se
     <div class="panel-header">
       <span class="panel-title">🌸 In Season</span>
       <div class="panel-header-btns">
-        <button class="panel-hdr-btn" onclick="closePanelOnly()" title="Minimize panel">⌄</button>
-        <button class="panel-hdr-btn" id="exit-season-btn" onclick="exitSeason()" title="Exit season mode">✕</button>
+        <button class="panel-hdr-btn" id="reset-season-btn" onclick="exitSeason()" title="Reset selection">Reset</button>
+        <button class="panel-hdr-btn" onclick="closePanelOnly()" title="Close panel">✕</button>
       </div>
     </div>
     <div class="season-date-row">
@@ -1026,7 +1031,9 @@ function renderSeasonPanel() {
 
     const hdr = document.createElement('div');
     hdr.className = 'season-group-header';
+    if (entries.length > 0 && entries.every(e => activeSeasonRows.has(e.name))) hdr.classList.add('active');
     hdr.textContent = typeLabel[type] || type;
+    hdr.addEventListener('click', () => toggleSeasonGroup(entries, hdr));
     grp.appendChild(hdr);
 
     entries.forEach(entry => {
@@ -1057,33 +1064,16 @@ function renderSeasonPanel() {
   if (seasonActiveAll) showAllInSeason();
 }
 
-function toggleSeasonSpecies(speciesName, eventType, rowEl) {
-  if (activeSeasonRows.has(speciesName)) {
-    activeSeasonRows.delete(speciesName);
-    rowEl.classList.remove('active');
-  } else {
-    activeSeasonRows.add(speciesName);
-    rowEl.classList.add('active');
-  }
-  seasonActiveAll = false;
-
-  if (activeSeasonRows.size === 0) {
-    showAll();
-    return;
-  }
-
-  // Highlight selected species, dim others
+function applySeasonHighlights() {
+  if (activeSeasonRows.size === 0) { showAll(); return; }
   const mmdd = getSelectedMMDD();
   layer.clearLayers();
   const highlighted = [];
-
   allMarkers.forEach(m => {
     const t = m._treeData;
     if (activeSeasonRows.has(t.name)) {
-      const evColor = (SEASONAL[t.name] || []).find(ev =>
-        ev.type === eventType && dateInRange(mmdd, ev.start, ev.end)
-      );
-      const col = evColor ? (TYPE_COLOR[evColor.type] || t.color) : t.color;
+      const activeEvs = (SEASONAL[t.name] || []).filter(ev => dateInRange(mmdd, ev.start, ev.end));
+      const col = activeEvs.length ? (TYPE_COLOR[activeEvs[0].type] || t.color) : t.color;
       m.setStyle({ radius: 9, fillColor: col, color: col, fillOpacity: 0.95, opacity: 1, weight: 2 });
       layer.addLayer(m);
       highlighted.push(m);
@@ -1092,7 +1082,6 @@ function toggleSeasonSpecies(speciesName, eventType, rowEl) {
       layer.addLayer(m);
     }
   });
-
   if (highlighted.length) {
     const lats = highlighted.map(m => m._treeData.lat);
     const lngs = highlighted.map(m => m._treeData.lng);
@@ -1103,11 +1092,43 @@ function toggleSeasonSpecies(speciesName, eventType, rowEl) {
   }
 }
 
+function toggleSeasonSpecies(speciesName, _eventType, rowEl) {
+  if (activeSeasonRows.has(speciesName)) {
+    activeSeasonRows.delete(speciesName);
+    rowEl.classList.remove('active');
+  } else {
+    activeSeasonRows.add(speciesName);
+    rowEl.classList.add('active');
+  }
+  seasonActiveAll = false;
+  // Sync group header active state
+  const hdr = rowEl.parentElement.querySelector('.season-group-header');
+  if (hdr) {
+    const siblings = [...rowEl.parentElement.querySelectorAll('.season-species-row')];
+    hdr.classList.toggle('active', siblings.length > 0 && siblings.every(r => activeSeasonRows.has(r.dataset.species)));
+  }
+  applySeasonHighlights();
+}
+
+function toggleSeasonGroup(entries, hdrEl) {
+  const allActive = entries.every(e => activeSeasonRows.has(e.name));
+  seasonActiveAll = false;
+  entries.forEach(e => {
+    if (allActive) activeSeasonRows.delete(e.name);
+    else activeSeasonRows.add(e.name);
+    const row = hdrEl.parentElement.querySelector(`.season-species-row[data-species="${CSS.escape(e.name)}"]`);
+    if (row) row.classList.toggle('active', !allActive);
+  });
+  hdrEl.classList.toggle('active', !allActive);
+  applySeasonHighlights();
+}
+
 function showAllInSeason() {
   seasonActiveAll = true;
   activeSeasonRows.clear();
-  // Update row styling
+  // Update row and header styling
   document.querySelectorAll('.season-species-row').forEach(r => r.classList.remove('active'));
+  document.querySelectorAll('.season-group-header').forEach(h => h.classList.remove('active'));
 
   const mmdd = getSelectedMMDD();
   const exciting = new Set(getExcitingTrees(mmdd).map(h => h.tree.name));
