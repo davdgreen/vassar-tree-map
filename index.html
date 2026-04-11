@@ -371,6 +371,32 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, sans-se
 .pp-row  { font-size: 12px; color: #333; margin-top: 3px; }
 .pp-lbl  { color: #666; }
 .pp-season { font-size: 12px; color: #e65100; margin-top: 6px; padding-top: 6px; border-top: 1px solid #eee; }
+.pp-rare {
+  font-size: 11px;
+  font-weight: 700;
+  color: #b8860b;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.pp-route-btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 7px 10px;
+  background: #1565c0;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pp-route-btn:hover { background: #0d47a1; }
 
 /* Location button */
 #locate-btn {
@@ -385,7 +411,9 @@ html, body { height: 100%; overflow: hidden; font-family: -apple-system, sans-se
   font-size: 22px;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
+  transition: background 0.15s, color 0.15s;
 }
+#locate-btn.active { background: #1e88e5; color: white; }
 
 /* Pulsing season marker */
 @keyframes pulse {
@@ -757,6 +785,10 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r
 
 const layer = L.layerGroup().addTo(map);
 
+// Count trees per species (for "rare" callout in popups)
+const speciesCount = {};
+TREES.forEach(t => { speciesCount[t.name] = (speciesCount[t.name] || 0) + 1; });
+
 // Build allMarkers
 const allMarkers = TREES.map(t => {
   const m = L.circleMarker([t.lat, t.lng], {
@@ -774,11 +806,19 @@ const allMarkers = TREES.map(t => {
     ? `<div class="pp-season">${activeEvs.map(e => `${e.icon} ${e.name}`).join('<br>')}</div>`
     : '';
 
+  // Rare callout: species with ≤5 trees on campus
+  const cnt = speciesCount[t.name] || 1;
+  const rareRow = cnt <= 5
+    ? `<div class="pp-rare">🌟 ${cnt === 1 ? 'The only one on campus' : `1 of only ${cnt} on campus`}</div>`
+    : '';
+
   m.bindPopup(
+    rareRow +
     `<div class="pp-id">Tree ID: ${t.id}</div>` +
     `<div class="pp-name">${t.name}</div>` +
     `<div class="pp-sci">${t.sci || t.genus}</div>` +
-    ageRow + condRow + seasonRow,
+    ageRow + condRow + seasonRow +
+    `<button class="pp-route-btn" onclick="routeToTreeById('${t.id}')">🚶 Take me there</button>`,
     { maxWidth: 260 }
   );
   m._treeData = t;
@@ -1294,44 +1334,121 @@ function clearRoute() {
   document.getElementById('clear-route-btn').style.display = 'none';
 }
 
-// Geolocation
+// Geolocation + follow mode
 let locMarker = null;
-function _doGetPosition() {
-  navigator.geolocation.getCurrentPosition(pos => {
-    const ll = [pos.coords.latitude, pos.coords.longitude];
-    window._userLoc = ll;
-    if (locMarker) map.removeLayer(locMarker);
+let _locWatchId = null;
+let followMode = false;
+
+function _updateLocMarker(pos) {
+  const ll = [pos.coords.latitude, pos.coords.longitude];
+  window._userLoc = ll;
+  if (locMarker) {
+    locMarker.setLatLng(ll);
+  } else {
     locMarker = L.circleMarker(ll, {
       radius: 8, color: '#1565c0', fillColor: '#1e88e5',
       fillOpacity: 0.9, weight: 2
-    }).addTo(map).bindPopup('You are here').openPopup();
-    map.setView(ll, 18);
-  }, err => {
-    let msg;
-    if (err.code === 1) {
-      msg = 'Location blocked for this site.\n\nIn Chrome: tap the lock icon (🔒) in the address bar → Site settings → Location → Allow.\n\nThen tap the location button again.';
-    } else if (err.code === 2) {
-      msg = 'Position unavailable — make sure device location is on.';
-    } else if (err.code === 3) {
-      msg = 'Location request timed out — try again.';
-    } else {
-      msg = 'Unknown location error.';
-    }
-    alert(msg);
-  }, { timeout: 10000 });
+    }).addTo(map).bindPopup('You are here');
+  }
+  if (followMode) map.panTo(ll, { animate: true, duration: 0.5 });
 }
+
+function _handleLocError(err) {
+  // Stop follow mode on hard failure so the button doesn't lie
+  _stopFollow();
+  let msg;
+  if (err.code === 1) {
+    msg = 'Location blocked for this site.\n\nIn Chrome: tap the lock icon (🔒) in the address bar → Site settings → Location → Allow.\n\nThen tap the location button again.';
+  } else if (err.code === 2) {
+    msg = 'Position unavailable — make sure device location is on.';
+  } else if (err.code === 3) {
+    msg = 'Location request timed out — try again.';
+  } else {
+    msg = 'Unknown location error.';
+  }
+  alert(msg);
+}
+
+function _startFollow() {
+  followMode = true;
+  document.getElementById('locate-btn').classList.add('active');
+  // First fix → recenter and zoom in if needed
+  navigator.geolocation.getCurrentPosition(pos => {
+    _updateLocMarker(pos);
+    if (map.getZoom() < 17) map.setView([pos.coords.latitude, pos.coords.longitude], 18);
+  }, _handleLocError, { enableHighAccuracy: true, timeout: 10000 });
+  // Continuous tracking
+  _locWatchId = navigator.geolocation.watchPosition(_updateLocMarker, _handleLocError, {
+    enableHighAccuracy: true, maximumAge: 5000, timeout: 15000
+  });
+}
+
+function _stopFollow() {
+  followMode = false;
+  const btn = document.getElementById('locate-btn');
+  if (btn) btn.classList.remove('active');
+  if (_locWatchId !== null) {
+    navigator.geolocation.clearWatch(_locWatchId);
+    _locWatchId = null;
+  }
+}
+
 function locateMe() {
   if (!navigator.geolocation) { alert('Geolocation not supported'); return; }
+  if (followMode) { _stopFollow(); return; }
   if (navigator.permissions) {
     navigator.permissions.query({ name: 'geolocation' }).then(result => {
       if (result.state === 'denied') {
         alert('Location is blocked for this site.\n\nIn Chrome: tap the lock icon (🔒) in the address bar → Site settings → Location → Allow.\n\nThen tap the location button again.');
       } else {
-        _doGetPosition();
+        _startFollow();
       }
-    }).catch(() => _doGetPosition());
+    }).catch(() => _startFollow());
   } else {
-    _doGetPosition();
+    _startFollow();
+  }
+}
+
+// Single-tree routing (used by "Take me there" popup button)
+function _createFootRoute(latlngs, onSummary) {
+  routingControl = L.Routing.control({
+    waypoints: latlngs.map(p => L.latLng(p[0], p[1])),
+    router: L.Routing.osrmv1({ serviceUrl: 'https://routing.openstreetmap.de/routed-foot/route/v1' }),
+    lineOptions: { styles: [{ color: '#1565c0', weight: 4, opacity: 0.8 }], extendToWaypoints: false, missingRouteTolerance: 0 },
+    addWaypoints: false, draggableWaypoints: false, fitSelectedRoutes: true, show: false,
+    createMarker: () => null,
+  }).addTo(map);
+  routingControl.on('routesfound', e => onSummary(e.routes[0]));
+  routingControl.on('routingerror', () => {
+    const info = document.getElementById('route-info');
+    info.style.display = 'block';
+    info.textContent = 'Could not compute route — check your internet connection.';
+  });
+}
+
+function routeToTreeById(treeId) {
+  const m = allMarkers.find(mk => mk._treeData.id == treeId);
+  if (!m) return;
+  const t = m._treeData;
+  const drawIt = () => {
+    clearRoute();
+    _createFootRoute([window._userLoc, [t.lat, t.lng]], route => {
+      const mins = Math.max(1, Math.round(route.summary.totalTime / 60));
+      const meters = Math.round(route.summary.totalDistance);
+      const info = document.getElementById('route-info');
+      info.style.display = 'block';
+      info.textContent = `🚶 ${t.name} · ~${mins} min · ${meters}m`;
+      document.getElementById('clear-route-btn').style.display = 'block';
+    });
+  };
+  if (window._userLoc) {
+    drawIt();
+  } else {
+    if (!navigator.geolocation) { alert('Geolocation not supported'); return; }
+    navigator.geolocation.getCurrentPosition(pos => {
+      _updateLocMarker(pos);
+      drawIt();
+    }, _handleLocError, { enableHighAccuracy: true, timeout: 10000 });
   }
 }
 
