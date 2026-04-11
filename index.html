@@ -1369,9 +1369,12 @@ function _handleLocError(err) {
   alert(msg);
 }
 
+function _onMapDrag() { _stopFollow(); }
+
 function _startFollow() {
   followMode = true;
   document.getElementById('locate-btn').classList.add('active');
+  map.on('dragstart', _onMapDrag);
   // First fix → recenter and zoom in if needed
   navigator.geolocation.getCurrentPosition(pos => {
     _updateLocMarker(pos);
@@ -1387,6 +1390,7 @@ function _stopFollow() {
   followMode = false;
   const btn = document.getElementById('locate-btn');
   if (btn) btn.classList.remove('active');
+  map.off('dragstart', _onMapDrag);
   if (_locWatchId !== null) {
     navigator.geolocation.clearWatch(_locWatchId);
     _locWatchId = null;
