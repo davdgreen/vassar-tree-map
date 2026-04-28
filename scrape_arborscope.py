@@ -15,9 +15,7 @@ import argparse
 import csv
 import json
 import re
-import sys
 import time
-from io import StringIO
 
 import requests
 from bs4 import BeautifulSoup
@@ -38,7 +36,7 @@ ENRICHED_PATH = 'vassar_enriched.json'
 
 
 # ---------------------------------------------------------------------------
-# Session setup — visit main page to get cookies, parse FilterForm hidden fields
+# Session setup — visit main page to get cookies, hidden form params, species list
 # ---------------------------------------------------------------------------
 
 def make_session():
@@ -50,44 +48,80 @@ def make_session():
 
     soup = BeautifulSoup(r.text, 'html.parser')
     form = soup.find('form', id='FilterForm')
+
     hidden_params = {}
+    species_names = []
     if form:
         for inp in form.find_all('input', type='hidden'):
             name = inp.get('name')
             val = inp.get('value', '')
             if name:
                 hidden_params[name] = val
-    print(f'  Session established. Hidden form params: {hidden_params}')
-    return s, hidden_params
+
+        # Extract canonical common names from the dropdown (these are in "Maple-Red" format)
+        name_select = form.find('select', {'name': 'commonName'})
+        if name_select:
+            for opt in name_select.find_all('option'):
+                val = (opt.get('value') or opt.get_text()).strip()
+                if val and val.lower() not in ('', 'all'):
+                    species_names.append(val)
+
+    print(f'  Session established. {len(species_names)} species in dropdown.')
+    return s, hidden_params, species_names
 
 
 # ---------------------------------------------------------------------------
-# Step 1: fetch all tree positions from generateTrees.cfm
+# Step 1a: fetch all tree positions from generateTrees.cfm
 # ---------------------------------------------------------------------------
 
 def fetch_trees(session, hidden_params):
-    params = dict(hidden_params)
-    print(f'Fetching tree list from generateTrees.cfm...')
-    r = session.get(TREES_URL, params=params, timeout=60)
+    print('Fetching tree list from generateTrees.cfm...')
+    r = session.get(TREES_URL, params=dict(hidden_params), timeout=60)
     r.raise_for_status()
 
     data = r.json()
-    # Structure: {"trees": [[treeid, featureid, lat, lng, icon, grid], ...]}
+    # Structure: {"trees": [[treeid, featureid, lat, lng, color_hex, grid], ...]}
     raw = data.get('trees', [])
     trees = []
     for entry in raw:
-        treeid, featureid, lat, lng, icon, grid = entry[0], entry[1], entry[2], entry[3], entry[4], entry[5]
+        treeid, featureid, lat, lng, color, grid = entry[0], entry[1], entry[2], entry[3], entry[4], entry[5]
         # treeid = internal sequential ID; featureid = Bartlett's ID (bartlett_id in our CSV)
+        # color is already a hex string like '009b04' or 'ffff00'
         trees.append({
             'internal_id': str(treeid),
             'bartlett_id': str(featureid),
-            'lat': float(lat),
-            'lng': float(lng),
-            'icon': icon,
-            'grid': grid,
+            'lat':         float(lat),
+            'lng':         float(lng),
+            'color_code':  str(color),
         })
     print(f'  Got {len(trees)} trees.')
     return trees
+
+
+# ---------------------------------------------------------------------------
+# Step 1b: build bartlett_id -> common_name by filtering once per species
+# ---------------------------------------------------------------------------
+
+def fetch_name_map(session, hidden_params, species_names, delay=0.05):
+    """
+    Call generateTrees.cfm once per species with a commonName filter to get
+    the authoritative "Maple-Red" format name for each bartlett_id.
+    """
+    print(f'Building name map ({len(species_names)} species)...')
+    name_map = {}
+    for i, name in enumerate(species_names):
+        params = dict(hidden_params)
+        params['commonName'] = name
+        r = session.get(TREES_URL, params=params, timeout=30)
+        r.raise_for_status()
+        for entry in r.json().get('trees', []):
+            featureid = str(entry[1])
+            name_map[featureid] = name
+        if (i + 1) % 30 == 0 or i == 0:
+            print(f'  {i+1}/{len(species_names)} species...')
+        time.sleep(delay)
+    print(f'  Name map built: {len(name_map)} trees across {len(species_names)} species.')
+    return name_map
 
 
 # ---------------------------------------------------------------------------
@@ -96,7 +130,7 @@ def fetch_trees(session, hidden_params):
 
 def parse_info_window(html):
     """
-    Extract common_name, sci, age, cond from getInfoWindow HTML fragment.
+    Extract sci, age, cond from getInfoWindow HTML fragment.
 
     Actual structure (from ArborScope):
       <h3><a ...><span>Tree ID: NNN</span><br/><strong>Red Maple</strong></a></h3>
@@ -107,25 +141,17 @@ def parse_info_window(html):
     soup = BeautifulSoup(html, 'html.parser')
     result = {}
 
-    # Common name — in <strong> inside the <h3>
-    strong = soup.select_one('h3 strong')
-    if strong:
-        result['common_name'] = strong.get_text(strip=True)
-
-    # Scientific name — first <i> in .info-window-details
     details = soup.find(class_='info-window-details')
     if details:
         i_tag = details.find('i')
         if i_tag:
             result['sci'] = i_tag.get_text(strip=True)
 
-        # Age and condition — find <p> tags containing these labels,
-        # then grab the <em> value inside them
         for p in details.find_all('p'):
-            text = p.get_text(separator=' ', strip=True)
             em = p.find('em')
             if not em:
                 continue
+            text = p.get_text(separator=' ', strip=True)
             val = em.get_text(strip=True)
             if re.search(r'Age Class', text, re.I):
                 result['age'] = val
@@ -140,13 +166,11 @@ def fetch_enriched(session, trees, delay=0.1):
     total = len(trees)
     for i, t in enumerate(trees):
         bid = t['bartlett_id']
-        fid = t['bartlett_id']
-        icon = t['icon']
         params = {
-            'id': INVENTORY_ID,
-            'treeid': bid,
-            'featureID': fid,
-            'icon': icon,
+            'id':        INVENTORY_ID,
+            'treeid':    bid,
+            'featureID': bid,
+            'icon':      t['color_code'],
         }
         r = session.get(INFO_URL, params=params, timeout=30)
         r.raise_for_status()
@@ -165,51 +189,22 @@ def fetch_enriched(session, trees, delay=0.1):
 
 
 # ---------------------------------------------------------------------------
-# Step 3: derive color_code and common_name from icon / info
-# ---------------------------------------------------------------------------
-
-def icon_to_color(icon):
-    """
-    ArborScope icons encode color. Map to our hex color_code convention.
-    Inspect a few known trees to calibrate — fallback to '009b04' (green).
-    """
-    icon = str(icon).lower()
-    # These mappings were inferred from the original CSV color_code values
-    mapping = {
-        'green':  '009b04',
-        'yellow': 'ffff00',
-        'orange': 'ff8c00',
-        'red':    'ff0000',
-        'blue':   '0000ff',
-        'purple': '800080',
-        'white':  'ffffff',
-        'gray':   '808080',
-        'grey':   '808080',
-    }
-    for key, code in mapping.items():
-        if key in icon:
-            return code
-    return '009b04'
-
-
-# ---------------------------------------------------------------------------
 # Write output files
 # ---------------------------------------------------------------------------
 
-def write_csv(trees, enriched, path):
+def write_csv(trees, name_map, enriched, path):
     rows = []
     for t in trees:
         bid = t['bartlett_id']
         info = enriched.get(bid, {})
-        internal_id = t['internal_id']
         rows.append({
-            'internal_id':  internal_id,
-            'bartlett_id':  bid,
-            'common_name':  info.get('common_name', ''),
-            'genus':        info.get('sci', '').split()[0] if info.get('sci') else '',
-            'latitude':     f"{t['lat']:.9f}",
-            'longitude':    f"{t['lng']:.9f}",
-            'color_code':   icon_to_color(t['icon']),
+            'internal_id': t['internal_id'],
+            'bartlett_id': bid,
+            'common_name': name_map.get(bid, ''),
+            'genus':       info.get('sci', '').split()[0] if info.get('sci') else '',
+            'latitude':    f"{t['lat']:.9f}",
+            'longitude':   f"{t['lng']:.9f}",
+            'color_code':  t['color_code'],
         })
     with open(path, 'w', newline='') as f:
         writer = csv.DictWriter(f, fieldnames=[
@@ -233,33 +228,32 @@ def write_enriched(enriched, path):
 # Verify mode: compare scraped data against existing files
 # ---------------------------------------------------------------------------
 
-def verify(trees, enriched):
+def verify(trees, name_map, enriched):
     print('\n=== VERIFICATION ===')
-    errors = 0
 
-    # Load existing CSV
     existing_csv = {}
     with open(CSV_PATH) as f:
         for row in csv.DictReader(f):
             existing_csv[row['bartlett_id']] = row
 
-    # Load existing enriched
     with open(ENRICHED_PATH) as f:
         existing_enriched = json.load(f)
 
     scraped_ids = {t['bartlett_id'] for t in trees}
     existing_ids = set(existing_csv.keys())
 
-    added = scraped_ids - existing_ids
+    added   = scraped_ids - existing_ids
     removed = existing_ids - scraped_ids
     if added:
         print(f'NEW trees ({len(added)}): {sorted(added)[:10]}{"..." if len(added) > 10 else ""}')
+        for bid in sorted(added):
+            print(f'  [{bid}] {name_map.get(bid, "?")}')
     if removed:
         print(f'REMOVED trees ({len(removed)}): {sorted(removed)[:10]}{"..." if len(removed) > 10 else ""}')
     if not added and not removed:
         print(f'Tree count matches: {len(scraped_ids)} trees')
 
-    # Check enriched fields for existing trees
+    # Check enriched fields
     changed = []
     for bid in scraped_ids & existing_ids:
         old = existing_enriched.get(bid, {})
@@ -299,7 +293,6 @@ def verify(trees, enriched):
         print('No coordinate changes.')
 
     print(f'\nVerification complete. {len(added)} added, {len(removed)} removed, {len(changed)} enriched changes.')
-    return errors
 
 
 # ---------------------------------------------------------------------------
@@ -316,8 +309,9 @@ def main():
                         help='Only process first N trees (for testing)')
     args = parser.parse_args()
 
-    session, hidden_params = make_session()
+    session, hidden_params, species_names = make_session()
     trees = fetch_trees(session, hidden_params)
+    name_map = fetch_name_map(session, hidden_params, species_names)
 
     if args.limit:
         trees = trees[:args.limit]
@@ -326,9 +320,9 @@ def main():
     enriched = fetch_enriched(session, trees, delay=args.delay)
 
     if args.verify:
-        verify(trees, enriched)
+        verify(trees, name_map, enriched)
     else:
-        write_csv(trees, enriched, CSV_PATH)
+        write_csv(trees, name_map, enriched, CSV_PATH)
         write_enriched(enriched, ENRICHED_PATH)
         print('\nDone. Run `python3 build_vassar_map.py` to rebuild index.html.')
 
