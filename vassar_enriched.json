@@ -3199,11 +3199,6 @@
     "age": "New planting",
     "cond": "Good"
   },
-  "809776": {
-    "sci": "Albizia julibrissin",
-    "age": "Semi-mature",
-    "cond": "Fair"
-  },
   "2871858": {
     "sci": "Tsuga canadensis",
     "age": "Mature",
@@ -3213,6 +3208,11 @@
     "sci": "Juniperus virginiana",
     "age": "Semi-mature",
     "cond": "Good"
+  },
+  "809776": {
+    "sci": "Albizia julibrissin",
+    "age": "Semi-mature",
+    "cond": "Fair"
   },
   "807416": {
     "sci": "Quercus rubra",
@@ -7724,6 +7724,16 @@
     "age": "New planting",
     "cond": "Good"
   },
+  "2906285": {
+    "sci": "Nyssa sylvatica",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2911385": {
+    "sci": "Cercis canadensis",
+    "age": "New planting",
+    "cond": "Good"
+  },
   "807409": {
     "sci": "Pinus strobus",
     "age": "Semi-mature",
@@ -11521,7 +11531,7 @@
   },
   "809780": {
     "sci": "Magnolia virginiana",
-    "age": "Young",
+    "age": "Semi-mature",
     "cond": "Good"
   },
   "809795": {
