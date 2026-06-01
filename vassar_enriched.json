@@ -5164,11 +5164,6 @@
     "age": "Young",
     "cond": "Good"
   },
-  "807548": {
-    "sci": "Picea abies",
-    "age": "Young",
-    "cond": "Fair"
-  },
   "807561": {
     "sci": "Picea abies",
     "age": "Semi-mature",
@@ -6699,6 +6694,11 @@
     "age": "Young",
     "cond": "Good"
   },
+  "807548": {
+    "sci": "Pseudotsuga menziesii",
+    "age": "Young",
+    "cond": "Good"
+  },
   "807566": {
     "sci": "Pseudotsuga menziesii",
     "age": "Semi-mature",
@@ -8121,11 +8121,6 @@
   },
   "812301": {
     "sci": "Zelkova serrata",
-    "age": "Mature",
-    "cond": "Good"
-  },
-  "812309": {
-    "sci": "Quercus rubra",
     "age": "Mature",
     "cond": "Good"
   },

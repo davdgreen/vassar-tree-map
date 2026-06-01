@@ -1032,7 +1032,6 @@ internal_id,bartlett_id,common_name,genus,latitude,longitude,color_code
 995,813092,Spruce-Norway,Picea,41.681555871,-73.893307841,009b04
 1016,807535,Katsuratree,Cercidiphyllum,41.690561083,-73.895634634,009b04
 1017,807536,Serviceberry,Amelanchier,41.690622328,-73.895951208,009b04
-1029,807548,Spruce-Norway,Picea,41.690076642,-73.894961370,ffff00
 1042,807561,Spruce-Norway,Picea,41.689532087,-73.895956258,009b04
 1056,807575,Dogwood-Flowering,Cornus,41.689765733,-73.895360715,009b04
 1077,807596,Arborvitae-White Cedar,Thuja,41.689071445,-73.893945291,009b04
@@ -1339,6 +1338,7 @@ internal_id,bartlett_id,common_name,genus,latitude,longitude,color_code
 1001,807520,Pine-Eastern White,Pinus,41.690820278,-73.895846291,009b04
 1004,807523,Pine-Eastern White,Pinus,41.690770484,-73.895734586,ffff00
 1028,807547,Magnolia,Magnolia,41.690074419,-73.895263455,009b04
+1029,807548,Douglas Fir,Pseudotsuga,41.690076642,-73.894961370,009b04
 1047,807566,Douglas Fir,Pseudotsuga,41.689569369,-73.895462067,ffff00
 1050,807569,Spruce-Colorado Blue,Picea,41.689657256,-73.895769490,009b04
 1083,807602,Arborvitae-White Cedar,Thuja,41.689089484,-73.893752839,ffff00
@@ -1624,7 +1624,6 @@ internal_id,bartlett_id,common_name,genus,latitude,longitude,color_code
 809,812286,Zelkova-Japanese,Zelkova,41.681648966,-73.895417985,009b04
 820,812297,Zelkova-Japanese,Zelkova,41.681731086,-73.894956103,009b04
 824,812301,Zelkova-Japanese,Zelkova,41.682107267,-73.894936115,009b04
-832,812309,Oak-Northern Red,Quercus,41.682684362,-73.895617060,009b04
 842,812319,Fir-White,Abies,41.682994160,-73.895702776,009b04
 868,812345,Crabapple,Malus,41.682741084,-73.895099462,009b04
 890,812987,Pine-Eastern White,Pinus,41.682431811,-73.893985455,009b04
