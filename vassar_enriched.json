@@ -1949,11 +1949,6 @@
     "age": "Mature",
     "cond": "Good"
   },
-  "812331": {
-    "sci": "Populus deltoides",
-    "age": "Over-mature",
-    "cond": "Good"
-  },
   "812356": {
     "sci": "Prunus sp",
     "age": "Semi-mature",
@@ -10909,6 +10904,11 @@
     "age": "New planting",
     "cond": "Good"
   },
+  "2949251": {
+    "sci": "Pinus strobus",
+    "age": "Over-mature",
+    "cond": "Good"
+  },
   "807425": {
     "sci": "Quercus palustris",
     "age": "Mature",
@@ -12029,11 +12029,6 @@
     "age": "Young",
     "cond": "Good"
   },
-  "812339": {
-    "sci": "Acer saccharum",
-    "age": "Mature",
-    "cond": "Good"
-  },
   "812341": {
     "sci": "Malus sp",
     "age": "Mature",
@@ -12452,6 +12447,11 @@
   "2883845": {
     "sci": "Diospyros virginiana",
     "age": "New planting",
+    "cond": "Good"
+  },
+  "2949252": {
+    "sci": "Quercus bicolor",
+    "age": "Mature",
     "cond": "Good"
   }
 }
