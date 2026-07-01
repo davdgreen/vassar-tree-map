@@ -109,6 +109,11 @@
     "age": "Semi-mature",
     "cond": "Good"
   },
+  "807939": {
+    "sci": "Tilia sp",
+    "age": "Mature",
+    "cond": "Good"
+  },
   "807943": {
     "sci": "Acer ginnala",
     "age": "Semi-mature",
@@ -1541,7 +1546,7 @@
   },
   "2257178": {
     "sci": "Quercus palustris",
-    "age": "Young",
+    "age": "New planting",
     "cond": "Good"
   },
   "2320770": {
@@ -1592,6 +1597,21 @@
   "2677833": {
     "sci": "Quercus coccinea",
     "age": "Young",
+    "cond": "Good"
+  },
+  "2956426": {
+    "sci": "Tilia americana",
+    "age": "Mature",
+    "cond": "Good"
+  },
+  "2968128": {
+    "sci": "Prunus serotina",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2968129": {
+    "sci": "Liriodendron tulipifera",
+    "age": "New planting",
     "cond": "Good"
   },
   "807383": {
@@ -4664,6 +4684,16 @@
     "age": "Young",
     "cond": "Good"
   },
+  "2956427": {
+    "sci": "Tilia americana",
+    "age": "Mature",
+    "cond": "Good"
+  },
+  "2968149": {
+    "sci": "Taxodium distichum",
+    "age": "New planting",
+    "cond": "Good"
+  },
   "807384": {
     "sci": "Tilia sp",
     "age": "Mature",
@@ -7729,6 +7759,21 @@
     "age": "New planting",
     "cond": "Good"
   },
+  "2968110": {
+    "sci": "Liriodendron tulipifera",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2968111": {
+    "sci": "Prunus serotina",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2968148": {
+    "sci": "Ulmus americana",
+    "age": "New planting",
+    "cond": "Good"
+  },
   "807409": {
     "sci": "Pinus strobus",
     "age": "Semi-mature",
@@ -9349,6 +9394,21 @@
     "age": "New planting",
     "cond": "Good"
   },
+  "2968089": {
+    "sci": "Taxodium distichum",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2968109": {
+    "sci": "Ulmus americana",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2968150": {
+    "sci": "Taxodium distichum",
+    "age": "New planting",
+    "cond": "Good"
+  },
   "807402": {
     "sci": "Pinus strobus",
     "age": "Mature",
@@ -10569,11 +10629,6 @@
     "age": "New planting",
     "cond": "Good"
   },
-  "1369631": {
-    "sci": "x Cupressocyparis leylandii",
-    "age": "New planting",
-    "cond": "Fair"
-  },
   "1369651": {
     "sci": "Abies concolor",
     "age": "Young",
@@ -10909,6 +10964,11 @@
     "age": "Over-mature",
     "cond": "Good"
   },
+  "2963788": {
+    "sci": "Quercus bicolor",
+    "age": "Mature",
+    "cond": "Good"
+  },
   "807425": {
     "sci": "Quercus palustris",
     "age": "Mature",
@@ -10952,11 +11012,6 @@
   "807862": {
     "sci": "Acer platanoides",
     "age": "Semi-mature",
-    "cond": "Good"
-  },
-  "807939": {
-    "sci": "Tilia sp",
-    "age": "Mature",
     "cond": "Good"
   },
   "807948": {
@@ -12194,6 +12249,11 @@
     "age": "New planting",
     "cond": "Good"
   },
+  "1369631": {
+    "sci": "x Cupressocyparis leylandii",
+    "age": "Young",
+    "cond": "Good"
+  },
   "1369646": {
     "sci": "Quercus palustris",
     "age": "New planting",
@@ -12452,6 +12512,26 @@
   "2949252": {
     "sci": "Quercus bicolor",
     "age": "Mature",
+    "cond": "Good"
+  },
+  "2963789": {
+    "sci": "Acer rubrum",
+    "age": "Mature",
+    "cond": "Good"
+  },
+  "2964352": {
+    "sci": "Acer rubrum",
+    "age": "",
+    "cond": "Good"
+  },
+  "2968088": {
+    "sci": "Prunus serotina",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2968108": {
+    "sci": "Liriodendron tulipifera",
+    "age": "New planting",
     "cond": "Good"
   }
 }
