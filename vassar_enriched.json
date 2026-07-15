@@ -3594,11 +3594,6 @@
     "age": "Young",
     "cond": "Good"
   },
-  "807550": {
-    "sci": "Quercus palustris",
-    "age": "Mature",
-    "cond": "Good"
-  },
   "807559": {
     "sci": "Pinus strobus",
     "age": "Young",
@@ -4864,11 +4859,6 @@
     "age": "Mature",
     "cond": "Good"
   },
-  "808899": {
-    "sci": "Pinus strobus",
-    "age": "Mature",
-    "cond": "Good"
-  },
   "809624": {
     "sci": "Quercus rubra",
     "age": "Mature",
@@ -5509,11 +5499,6 @@
     "age": "Young",
     "cond": "Good"
   },
-  "812429": {
-    "sci": "Tsuga canadensis",
-    "age": "Young",
-    "cond": "Good"
-  },
   "812438": {
     "sci": "Quercus rubra",
     "age": "Mature",
@@ -5718,11 +5703,6 @@
     "sci": "Acer palmatum",
     "age": "Mature",
     "cond": "Good"
-  },
-  "807458": {
-    "sci": "Acer saccharum",
-    "age": "Semi-mature",
-    "cond": "Fair"
   },
   "807901": {
     "sci": "Acer ginnala",
@@ -6283,11 +6263,6 @@
     "sci": "Maackia amurensis",
     "age": "Semi-mature",
     "cond": "Good"
-  },
-  "807444": {
-    "sci": "Malus sp",
-    "age": "Mature",
-    "cond": "Fair"
   },
   "807449": {
     "sci": "Prunus sargentii",
@@ -7754,11 +7729,6 @@
     "age": "New planting",
     "cond": "Good"
   },
-  "2911385": {
-    "sci": "Cercis canadensis",
-    "age": "New planting",
-    "cond": "Good"
-  },
   "2968110": {
     "sci": "Liriodendron tulipifera",
     "age": "New planting",
@@ -8647,11 +8617,6 @@
   "812425": {
     "sci": "Tsuga canadensis",
     "age": "Semi-mature",
-    "cond": "Good"
-  },
-  "812426": {
-    "sci": "Picea abies",
-    "age": "Mature",
     "cond": "Good"
   },
   "812439": {
@@ -9551,11 +9516,6 @@
   },
   "808896": {
     "sci": "Picea abies",
-    "age": "Mature",
-    "cond": "Good"
-  },
-  "808898": {
-    "sci": "Pinus strobus",
     "age": "Mature",
     "cond": "Good"
   },
@@ -11162,11 +11122,6 @@
   "810186": {
     "sci": "Cornus florida",
     "age": "Young",
-    "cond": "Good"
-  },
-  "810190": {
-    "sci": "Acer saccharum",
-    "age": "Mature",
     "cond": "Good"
   },
   "810201": {
