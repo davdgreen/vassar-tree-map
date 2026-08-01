@@ -614,11 +614,6 @@
     "age": "Semi-mature",
     "cond": "Good"
   },
-  "808014": {
-    "sci": "Quercus palustris",
-    "age": "Mature",
-    "cond": "Poor"
-  },
   "808019": {
     "sci": "Thuja occidentalis",
     "age": "Semi-mature",
@@ -1689,11 +1684,6 @@
     "age": "Young",
     "cond": "Good"
   },
-  "807896": {
-    "sci": "Acer saccharum",
-    "age": "Mature",
-    "cond": "Good"
-  },
   "807898": {
     "sci": "Acer ginnala",
     "age": "Semi-mature",
@@ -2389,11 +2379,6 @@
     "age": "Mature",
     "cond": "Good"
   },
-  "811438": {
-    "sci": "Quercus robur",
-    "age": "Mature",
-    "cond": "Good"
-  },
   "811459": {
     "sci": "Acer rubrum",
     "age": "Semi-mature",
@@ -2786,7 +2771,7 @@
   },
   "807556": {
     "sci": "Pinus strobus",
-    "age": "Mature",
+    "age": "Over-mature",
     "cond": "Good"
   },
   "807992": {
@@ -3668,11 +3653,6 @@
     "sci": "Acer platanoides",
     "age": "Young",
     "cond": "Good"
-  },
-  "808065": {
-    "sci": "Larix decidua",
-    "age": "Mature",
-    "cond": "Fair"
   },
   "808078": {
     "sci": "Tsuga canadensis",
@@ -4669,11 +4649,6 @@
     "age": "Mature",
     "cond": "Good"
   },
-  "2868705": {
-    "sci": "Cercis canadensis",
-    "age": "New planting",
-    "cond": "Good"
-  },
   "2873738": {
     "sci": "Non-listed Genus Non-listed Species",
     "age": "Young",
@@ -4686,6 +4661,11 @@
   },
   "2968149": {
     "sci": "Taxodium distichum",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2868705": {
+    "sci": "Cercis canadensis",
     "age": "New planting",
     "cond": "Good"
   },
@@ -4757,11 +4737,6 @@
   "807906": {
     "sci": "Acer ginnala",
     "age": "Semi-mature",
-    "cond": "Good"
-  },
-  "807918": {
-    "sci": "Pinus sylvestris",
-    "age": "Mature",
     "cond": "Good"
   },
   "807953": {
@@ -5679,11 +5654,6 @@
     "age": "Mature",
     "cond": "Good"
   },
-  "823819": {
-    "sci": "Zelkova serrata",
-    "age": "Young",
-    "cond": "Good"
-  },
   "823823": {
     "sci": "Gleditsia triacanthos",
     "age": "Young",
@@ -6174,11 +6144,6 @@
     "age": "Young",
     "cond": "Good"
   },
-  "2107514": {
-    "sci": "Heptacodium miconioides",
-    "age": "New planting",
-    "cond": "Good"
-  },
   "1369627": {
     "sci": "x Cupressocyparis leylandii",
     "age": "Young",
@@ -6241,6 +6206,11 @@
   },
   "2872538": {
     "sci": "Franklinia alatamaha",
+    "age": "New planting",
+    "cond": "Good"
+  },
+  "2107514": {
+    "sci": "Heptacodium miconioides",
     "age": "New planting",
     "cond": "Good"
   },
@@ -7082,11 +7052,6 @@
   "812427": {
     "sci": "Tsuga canadensis",
     "age": "Young",
-    "cond": "Good"
-  },
-  "812490": {
-    "sci": "Tsuga caroliniana",
-    "age": "Mature",
     "cond": "Good"
   },
   "812500": {
@@ -9464,11 +9429,6 @@
     "age": "Mature",
     "cond": "Good"
   },
-  "808792": {
-    "sci": "Pinus strobus",
-    "age": "Over-mature",
-    "cond": "Fair"
-  },
   "808807": {
     "sci": "Picea abies",
     "age": "Semi-mature",
@@ -10539,11 +10499,6 @@
     "age": "Young",
     "cond": "Good"
   },
-  "812479": {
-    "sci": "Tsuga canadensis",
-    "age": "Young",
-    "cond": "Good"
-  },
   "813150": {
     "sci": "Taxodium distichum",
     "age": "Mature",
@@ -10982,11 +10937,6 @@
   "808775": {
     "sci": "Picea abies",
     "age": "Semi-mature",
-    "cond": "Good"
-  },
-  "808791": {
-    "sci": "Pinus strobus",
-    "age": "Mature",
     "cond": "Good"
   },
   "808794": {
@@ -11893,11 +11843,6 @@
     "sci": "Malus sp",
     "age": "Semi-mature",
     "cond": "Dead"
-  },
-  "817597": {
-    "sci": "Salix sp",
-    "age": "Mature",
-    "cond": "Good"
   },
   "817599": {
     "sci": "Malus sp",
