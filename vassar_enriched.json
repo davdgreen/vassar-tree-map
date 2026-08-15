@@ -5644,11 +5644,6 @@
     "age": "Semi-mature",
     "cond": "Good"
   },
-  "823777": {
-    "sci": "Acer platanoides",
-    "age": "Semi-mature",
-    "cond": "Good"
-  },
   "823801": {
     "sci": "Pinus strobus",
     "age": "Mature",
@@ -11916,11 +11911,6 @@
   },
   "823756": {
     "sci": "Thuja occidentalis",
-    "age": "Semi-mature",
-    "cond": "Good"
-  },
-  "823775": {
-    "sci": "Acer platanoides",
     "age": "Semi-mature",
     "cond": "Good"
   },
