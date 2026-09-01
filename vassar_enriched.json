@@ -56,7 +56,7 @@
   },
   "807453": {
     "sci": "Acer saccharum",
-    "age": "Semi-mature",
+    "age": "Mature",
     "cond": "Good"
   },
   "807459": {
@@ -913,11 +913,6 @@
     "sci": "Pinus strobus",
     "age": "Young",
     "cond": "Good"
-  },
-  "812423": {
-    "sci": "Tsuga canadensis",
-    "age": "Young",
-    "cond": "Dead"
   },
   "812445": {
     "sci": "Picea abies",
@@ -4668,6 +4663,11 @@
     "sci": "Cercis canadensis",
     "age": "New planting",
     "cond": "Good"
+  },
+  "812423": {
+    "sci": "Tsuga canadensis",
+    "age": "Semi-mature",
+    "cond": "Poor"
   },
   "807384": {
     "sci": "Tilia sp",
@@ -11719,11 +11719,6 @@
     "age": "Mature",
     "cond": "Fair"
   },
-  "812422": {
-    "sci": "Acer saccharum",
-    "age": "Mature",
-    "cond": "Good"
-  },
   "812452": {
     "sci": "Tsuga canadensis",
     "age": "Mature",
@@ -12422,6 +12417,11 @@
   "2968108": {
     "sci": "Liriodendron tulipifera",
     "age": "New planting",
+    "cond": "Good"
+  },
+  "812422": {
+    "sci": "Acer saccharum",
+    "age": "Mature",
     "cond": "Good"
   }
 }
