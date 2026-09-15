@@ -6424,11 +6424,6 @@
     "age": "Mature",
     "cond": "Good"
   },
-  "810235": {
-    "sci": "Acer saccharum",
-    "age": "Mature",
-    "cond": "Good"
-  },
   "810245": {
     "sci": "Taxus baccata",
     "age": "Mature",
@@ -7702,6 +7697,11 @@
   "2968148": {
     "sci": "Ulmus americana",
     "age": "New planting",
+    "cond": "Good"
+  },
+  "810235": {
+    "sci": "Acer saccharum",
+    "age": "Mature",
     "cond": "Good"
   },
   "807409": {
