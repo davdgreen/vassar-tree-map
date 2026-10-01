@@ -2079,11 +2079,6 @@
     "age": "Semi-mature",
     "cond": "Good"
   },
-  "807580": {
-    "sci": "Fagus sylvatica",
-    "age": "Semi-mature",
-    "cond": "Good"
-  },
   "807594": {
     "sci": "Thuja occidentalis",
     "age": "Young",
@@ -4931,7 +4926,7 @@
   },
   "810226": {
     "sci": "Fagus sylvatica",
-    "age": "Young",
+    "age": "Semi-mature",
     "cond": "Good"
   },
   "810229": {
@@ -8189,6 +8184,11 @@
     "age": "Young",
     "cond": "Good"
   },
+  "807580": {
+    "sci": "Fagus sylvatica",
+    "age": "Semi-mature",
+    "cond": "Good"
+  },
   "807581": {
     "sci": "Quercus robur",
     "age": "Mature",
@@ -10029,11 +10029,6 @@
     "age": "Mature",
     "cond": "Good"
   },
-  "811052": {
-    "sci": "Magnolia acuminata",
-    "age": "New planting",
-    "cond": "Good"
-  },
   "811056": {
     "sci": "Pinus strobus",
     "age": "Semi-mature",
@@ -10877,6 +10872,11 @@
   "2963788": {
     "sci": "Quercus bicolor",
     "age": "Mature",
+    "cond": "Good"
+  },
+  "811052": {
+    "sci": "Magnolia acuminata",
+    "age": "Young",
     "cond": "Good"
   },
   "807425": {
@@ -12141,7 +12141,7 @@
   },
   "1369646": {
     "sci": "Quercus palustris",
-    "age": "New planting",
+    "age": "Young",
     "cond": "Fair"
   },
   "1369661": {
